@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yellow Complex | PROOTED</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=EB+Garamond:ital@1&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <style>
+    :root { --primary: #4A3728; --accent: #C9A227; --background: #F8F5F2; --surface: #FFFFFF; --text: #2D2D2D; --muted: #8A8A8A; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Pretendard', sans-serif; background-color: var(--background); color: var(--text); }
+    .header { display: flex; justify-content: center; align-items: center; padding: 24px 60px; background-color: var(--background); }
+    .header-nav { display: flex; align-items: center; gap: 60px; }
+    .header-nav a { font-size: 12px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; color: var(--text); text-decoration: none; }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; letter-spacing: 8px; color: var(--primary); margin: 0 40px; text-decoration: none; }
+    .hero { height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #F5EED8 0%, #E8E0C8 100%); }
+    .hero-tag { font-size: 12px; letter-spacing: 3px; color: var(--accent); margin-bottom: 24px; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; color: var(--primary); margin-bottom: 16px; }
+    .hero .subtitle { font-family: 'EB Garamond', serif; font-style: italic; font-size: 20px; color: var(--muted); }
+    .intro-section { padding: 120px 80px; background-color: var(--surface); text-align: center; }
+    .intro-section p { font-size: 18px; line-height: 2; color: var(--text); max-width: 700px; margin: 0 auto; }
+    .ingredients-section { padding: 100px 80px; background-color: var(--background); }
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-header .label { font-family: 'EB Garamond', serif; font-style: italic; font-size: 14px; color: var(--muted); margin-bottom: 16px; }
+    .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--primary); }
+    .ingredients-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 1000px; margin: 0 auto; }
+    .ingredient-card { text-align: center; padding: 40px 24px; background-color: var(--surface); }
+    .ingredient-icon { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #C9A227 0%, #B89217 100%); margin: 0 auto 20px; }
+    .ingredient-card h3 { font-size: 16px; font-weight: 500; color: var(--primary); margin-bottom: 8px; }
+    .ingredient-card p { font-size: 13px; color: var(--muted); }
+    .benefits-section { padding: 120px 80px; background: linear-gradient(135deg, #C9A227 0%, #B89217 100%); text-align: center; }
+    .benefits-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: white; margin-bottom: 60px; }
+    .benefits-grid { display: flex; justify-content: center; gap: 80px; }
+    .benefit-item { text-align: center; color: white; }
+    .benefit-item .number { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 300; }
+    .benefit-item .unit { font-size: 24px; }
+    .benefit-item .desc { font-size: 14px; margin-top: 8px; opacity: 0.9; }
+    .product-section { padding: 100px 80px; background-color: var(--surface); text-align: center; }
+    .product-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--primary); margin-bottom: 40px; }
+    .product-card { display: inline-block; text-decoration: none; }
+    .product-image { width: 300px; height: 375px; background-color: #F5EED8; margin-bottom: 20px; overflow: hidden; }
+    .product-image img { width: 100%; height: 100%; object-fit: cover; }
+    .product-card h3 { font-size: 18px; color: var(--primary); margin-bottom: 8px; }
+    .product-card .price { font-size: 15px; color: var(--muted); }
+    .footer { padding: 60px; text-align: center; background-color: var(--primary); color: var(--surface); }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; letter-spacing: 6px; }
+    @media (max-width: 1024px) { .ingredients-grid { grid-template-columns: repeat(2, 1fr); } .benefits-grid { flex-wrap: wrap; gap: 40px; } }
+    @media (max-width: 768px) { .header-nav { gap: 24px; } .logo { font-size: 20px; margin: 0 16px; } .hero { height: auto; padding: 80px 24px; } .hero h1 { font-size: 36px; } .intro-section, .ingredients-section, .benefits-section, .product-section { padding: 60px 24px; } .ingredients-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="header"><nav class="header-nav"><a href="../shop/index.html">Shop</a><a href="index.html">Story</a><a href="../index.html" class="logo"><img src="../../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 24px;"></a><a href="../brand/index.html">Brand</a><a href="#">Cart</a></nav></header>
+  <section class="hero"><p class="hero-tag">YELLOW LINE</p><h1>Yellow Complex</h1><p class="subtitle">Damage Repair & Protein</p></section>
+  <section class="intro-section"><p>바나나, 달걀, 꿀 등 옐로우 슈퍼푸드가<br>극손상 모발에 단백질을 채웁니다.<br><br>물미역 광채로<br>즉각적인 윤기를 선사합니다.</p></section>
+  <section class="ingredients-section">
+    <div class="section-header"><p class="label">Key Ingredients</p><h2>옐로우 슈퍼푸드 콤플렉스</h2></div>
+    <div class="ingredients-grid">
+      <div class="ingredient-card"><div class="ingredient-icon"></div><h3>바나나</h3><p>단백질 공급</p></div>
+      <div class="ingredient-card"><div class="ingredient-icon"></div><h3>달걀</h3><p>모발 강화</p></div>
+      <div class="ingredient-card"><div class="ingredient-icon"></div><h3>꿀</h3><p>보습 & 윤기</p></div>
+      <div class="ingredient-card"><div class="ingredient-icon"></div><h3>물미역</h3><p>즉각 광채</p></div>
+    </div>
+  </section>
+  <section class="benefits-section"><h2>Clinical Results</h2><div class="benefits-grid"><div class="benefit-item"><p class="number">45<span class="unit">%</span></p><p class="desc">큐티클 거칠기 개선</p></div><div class="benefit-item"><p class="number">38<span class="unit">%</span></p><p class="desc">모발 인장 강도 개선</p></div></div></section>
+  <section class="product-section"><h2>이 성분이 담긴 제품</h2><a href="../shop/yellow-mix.html" class="product-card"><div class="product-image"><img src="../../images/옐로우트리트먼트/260123-prooted57608.jpg" alt="바나나에그 트리트먼트"></div><h3>바나나에그 트리트먼트</h3><p class="price">₩26,000</p></a></section>
+  <footer class="footer"><div class="footer-logo"><img src="../../images/로고/prtd_logo_WH.png" alt="PROOTED" style="height: 20px;"></div></footer>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Fresh] 딥 클린 & 실키 리페어 | PROOTED</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=EB+Garamond:ital@1&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <style>
+    :root { --primary: #4A3728; --secondary: #7B5E57; --accent: #4CAF50; --background: #F8F5F2; --surface: #FFFFFF; --text: #2D2D2D; --muted: #8A8A8A; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Pretendard', sans-serif; background-color: var(--background); color: var(--text); }
+    .header { display: flex; justify-content: center; align-items: center; padding: 24px 60px; background-color: var(--background); position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+    .header-nav { display: flex; align-items: center; gap: 60px; }
+    .header-nav a { font-size: 12px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; color: var(--text); text-decoration: none; }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; letter-spacing: 8px; color: var(--primary); margin: 0 40px; text-decoration: none; }
+    .product-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; padding-top: 80px; }
+    .product-gallery { position: sticky; top: 80px; height: calc(100vh - 80px); background-color: #E8F0E8; }
+    .product-gallery img { width: 100%; height: 100%; object-fit: cover; }
+    .product-details { padding: 100px 80px; display: flex; flex-direction: column; justify-content: center; }
+    .product-line { font-size: 12px; letter-spacing: 3px; color: var(--accent); margin-bottom: 16px; }
+    .product-title { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; color: var(--primary); line-height: 1.3; margin-bottom: 16px; }
+    .product-subtitle { font-family: 'EB Garamond', serif; font-style: italic; font-size: 18px; color: var(--muted); margin-bottom: 40px; }
+    .product-description { font-size: 15px; line-height: 1.8; color: var(--text); margin-bottom: 40px; }
+    .set-composition { display: flex; gap: 24px; margin-bottom: 40px; padding: 32px; background: rgba(0,0,0,0.03); border-radius: 8px; }
+    .set-item { flex: 1; text-align: center; }
+    .set-item img { width: 100px; height: 100px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; }
+    .set-item .name { font-size: 14px; color: var(--primary); margin-bottom: 4px; }
+    .set-item .price { font-size: 13px; color: var(--muted); }
+    .price-box { margin-bottom: 32px; padding: 24px 0; border-top: 1px solid rgba(0,0,0,0.1); border-bottom: 1px solid rgba(0,0,0,0.1); }
+    .original-price { font-size: 16px; color: var(--muted); text-decoration: line-through; margin-bottom: 8px; }
+    .set-price { display: flex; align-items: baseline; gap: 12px; }
+    .set-price .price { font-size: 32px; color: var(--primary); }
+    .set-price .discount { font-size: 14px; color: #E53935; font-weight: 600; }
+    .add-to-cart { display: block; width: 100%; padding: 18px; background-color: var(--primary); color: var(--surface); border: none; font-size: 13px; letter-spacing: 2px; cursor: pointer; transition: background 0.3s; margin-bottom: 16px; }
+    .add-to-cart:hover { background-color: var(--secondary); }
+    .buy-now { display: block; width: 100%; padding: 18px; background: transparent; border: 1px solid var(--primary); color: var(--primary); font-size: 13px; letter-spacing: 2px; cursor: pointer; transition: all 0.3s; }
+    .buy-now:hover { background: var(--primary); color: var(--surface); }
+    .benefits-section { padding: 100px 80px; background-color: var(--surface); text-align: center; }
+    .benefits-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--primary); margin-bottom: 60px; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 900px; margin: 0 auto; }
+    .benefit-card { padding: 32px; background: var(--background); border-radius: 8px; }
+    .benefit-card h3 { font-size: 16px; color: var(--primary); margin-bottom: 8px; }
+    .benefit-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .footer { padding: 60px; text-align: center; background-color: var(--primary); color: var(--surface); }
+    @media (max-width: 1024px) { .product-hero { grid-template-columns: 1fr; } .product-gallery { position: relative; height: 60vh; top: 0; } .product-details { padding: 60px 40px; } .set-composition { flex-direction: column; } .benefits-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .header-nav { gap: 24px; } .logo { font-size: 20px; margin: 0 16px; } .product-title { font-size: 32px; } .product-details { padding: 40px 24px; } }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="header-nav">
+      <a href="index.html">Shop</a>
+      <a href="../story/index.html">Story</a>
+      <a href="../index.html" class="logo"><img src="../../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 24px;"></a>
+      <a href="../brand/index.html">Brand</a>
+      <a href="#">Cart</a>
+    </nav>
+  </header>
+
+  <section class="product-hero">
+    <div class="product-gallery">
+      <img src="../../images/퍼플+그린+옐로우/260123-prooted57661.jpg" alt="딥 클린 세트">
+    </div>
+    <div class="product-details">
+      <p class="product-line">FRESH SET</p>
+      <h1 class="product-title">[FRESH] 딥 클린<br>& 실키 리페어</h1>
+      <p class="product-subtitle">Deep Clean & Silky Repair Set</p>
+      <p class="product-description">
+        두피 유분은 싹 비우고,<br>
+        모발 끝 영양만 남기는 '결보습족' 루틴.<br><br>
+        그린으로 두피를 맑게 클렌징하고<br>
+        옐로우로 모발에 단백질을 채웁니다.
+      </p>
+      <div class="set-composition">
+        <div class="set-item">
+          <img src="../../images/그린샴푸/260123-prooted57595.jpg" alt="그린클렌징 샴푸">
+          <p class="name">그린클렌징 케일 샴푸</p>
+          <p class="price">₩28,000</p>
+        </div>
+        <div class="set-item">
+          <img src="../../images/옐로우트리트먼트/260123-prooted57608.jpg" alt="바나나에그 트리트먼트">
+          <p class="name">바나나에그 트리트먼트</p>
+          <p class="price">₩26,000</p>
+        </div>
+      </div>
+      <div class="price-box">
+        <p class="original-price">₩54,000</p>
+        <div class="set-price">
+          <span class="price">₩43,200</span>
+          <span class="discount">20% OFF</span>
+        </div>
+      </div>
+      <button class="add-to-cart">장바구니 담기</button>
+      <button class="buy-now">바로 구매</button>
+    </div>
+  </section>
+
+  <section class="benefits-section">
+    <h2>이런 분께 추천해요</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <h3>지성 두피</h3>
+        <p>피지 분비가 많아<br>깔끔한 클렌징이 필요한 분</p>
+      </div>
+      <div class="benefit-card">
+        <h3>손상 모발</h3>
+        <p>염색/펌으로 모발 끝이<br>푸석한 분</p>
+      </div>
+      <div class="benefit-card">
+        <h3>청량한 마무리</h3>
+        <p>개운하면서도 부드러운<br>결을 원하는 분</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-logo"><img src="../../images/로고/prtd_logo_WH.png" alt="PROOTED" style="height: 20px;"></div>
+  </footer>
+</body>
+</html>

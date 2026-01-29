@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROOTED | 슈퍼푸드 헤어케어</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4A3728;
+      --secondary: #7B5E57;
+      --accent: #8B5A8B;
+      --background: #F8F5F2;
+      --surface: #FFFFFF;
+      --text: #2D2D2D;
+      --muted: #8A8A8A;
+      --font-heading: 'Cormorant Garamond', serif;
+      --font-body: 'Pretendard', -apple-system, sans-serif;
+      --font-accent: 'EB Garamond', serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Promo Bar */
+    .promo-bar {
+      background-color: var(--primary);
+      color: var(--surface);
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+
+    .promo-bar a {
+      color: var(--surface);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 60px;
+      background-color: var(--background);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .header-nav a {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+
+    .header-nav a:hover {
+      opacity: 0.6;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: 8px;
+      color: var(--primary);
+      margin: 0 40px;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: url('../images/감성컷/20260123_151137.jpg') center/cover no-repeat;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1.2s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+      animation-delay: 0.3s;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 2;
+      letter-spacing: 4px;
+      margin-bottom: 40px;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero .brand-name {
+      font-family: var(--font-heading);
+      font-size: 48px;
+      font-weight: 300;
+      letter-spacing: 20px;
+      color: white;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      margin-bottom: 60px;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards;
+      animation-delay: 1s;
+    }
+
+    .scroll-indicator {
+      z-index: 1;
+    }
+
+    .scroll-indicator span {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .scroll-indicator::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background-color: rgba(255,255,255,0.5);
+      animation: scrollLine 2s ease infinite;
+    }
+
+    @keyframes scrollLine {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* Brand Statement */
+    .brand-statement {
+      padding: 160px 60px;
+      text-align: center;
+      background-color: var(--surface);
+    }
+
+    .brand-statement blockquote {
+      font-family: var(--font-heading);
+      font-size: 36px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--primary);
+      margin-bottom: 40px;
+    }
+
+    .brand-statement .tagline {
+      font-family: var(--font-accent);
+      font-style: italic;
+      font-size: 18px;
+      color: var(--muted);
+      letter-spacing: 2px;
+    }
+
+    /* Product Grid */
+    .product-section {
+      padding: 120px 60px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      position: relative;
+      overflow: hidden;
+      background-color: var(--surface);
+      text-decoration: none;
+      display: block;
+    }
+
+    .product-card img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    .product-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .product-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 32px;
+      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%);
+      color: var(--surface);
+    }
+
+    .product-info h3 {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .product-info p {
+      font-size: 13px;
+      font-weight: 300;
+      opacity: 0.9;
+    }
+
+    /* Origin Story */
+    .origin-section {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .origin-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #E8DED5 0%, #D4C4B5 100%);
+    }
+
+    .origin-content {
+      position: relative;
+      z-index: 1;
+      padding: 60px 120px;
+      max-width: 600px;
+    }
+
+    .origin-content .label {
+      font-family: var(--font-accent);
+      font-style: italic;
+      font-size: 14px;
+      color: var(--secondary);
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+
+    .origin-content h2 {
+      font-family: var(--font-heading);
+      font-size: 42px;
+      font-weight: 300;
+      line-height: 1.4;
+      color: var(--primary);
+      margin-bottom: 32px;
+    }
+
+    .origin-content .link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: gap 0.3s;
+    }
+
+    .origin-content .link:hover {
+      gap: 20px;
+    }
+
+    /* Clinical Proof */
+    .clinical-section {
+      padding: 120px 60px;
+      text-align: center;
+      background-color: var(--surface);
+    }
+
+    .clinical-section .label {
+      font-family: var(--font-accent);
+      font-style: italic;
+      font-size: 16px;
+      color: var(--muted);
+      letter-spacing: 2px;
+      margin-bottom: 60px;
+    }
+
+    .clinical-grid {
+      display: flex;
+      justify-content: center;
+      gap: 100px;
+      margin-bottom: 40px;
+    }
+
+    .clinical-item {
+      text-align: center;
+    }
+
+    .clinical-item .value {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .clinical-item .desc {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .clinical-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Reviews */
+    .reviews-section {
+      padding: 120px 60px;
+      overflow: hidden;
+    }
+
+    .reviews-track {
+      display: flex;
+      gap: 40px;
+      animation: scroll 30s linear infinite;
+    }
+
+    .review-card {
+      flex-shrink: 0;
+      width: 400px;
+      padding: 40px;
+      background-color: var(--surface);
+    }
+
+    .review-card blockquote {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+
+    .review-card .author {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .review-card .stars {
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Footer */
+    .footer {
+      padding: 80px 60px;
+      text-align: center;
+      background-color: var(--primary);
+      color: var(--surface);
+    }
+
+    .footer-logo {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 300;
+      letter-spacing: 8px;
+      margin-bottom: 40px;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-nav a {
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      color: var(--surface);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    .footer-nav a:hover {
+      opacity: 1;
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .footer-social a {
+      font-size: 13px;
+      color: var(--surface);
+      text-decoration: none;
+      opacity: 0.6;
+    }
+
+    .footer-copyright {
+      font-size: 12px;
+      opacity: 0.5;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header {
+        padding: 16px 24px;
+      }
+
+      .header-nav {
+        gap: 24px;
+      }
+
+      .header-nav a {
+        font-size: 10px;
+      }
+
+      .logo {
+        font-size: 20px;
+        letter-spacing: 4px;
+        margin: 0 20px;
+      }
+
+      .hero h1 {
+        font-size: 18px;
+        padding: 0 24px;
+      }
+
+      .hero .brand-name {
+        font-size: 32px;
+        letter-spacing: 12px;
+      }
+
+      .brand-statement {
+        padding: 80px 24px;
+      }
+
+      .brand-statement blockquote {
+        font-size: 24px;
+      }
+
+      .product-section {
+        padding: 60px 24px;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .origin-content {
+        padding: 40px 24px;
+      }
+
+      .origin-content h2 {
+        font-size: 28px;
+      }
+
+      .clinical-grid {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .review-card {
+        width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Promo Bar -->
+  <div class="promo-bar">
+    첫구매 최대 60% 할인 + 5,000원 쿠폰 <a href="#">혜택 받기</a>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="header-nav">
+      <a href="shop/index.html">Shop</a>
+      <a href="story/index.html">Story</a>
+      <span class="logo"><img src="../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 24px;"></span>
+      <a href="brand/index.html">Brand</a>
+      <a href="#">Cart</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>슈퍼푸드 원물에서 찾은<br>두피·헤어 솔루션</h1>
+      <div class="brand-name">P R O O T E D</div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Discover</span>
+    </div>
+  </section>
+
+  <!-- Brand Statement -->
+  <section class="brand-statement fade-up">
+    <blockquote>"가장 신선한 것이<br>가장 강력하니까."</blockquote>
+    <p class="tagline">Raw, Real, and Rooted.</p>
+  </section>
+
+  <!-- Product Grid -->
+  <section class="product-section">
+    <div class="product-grid">
+      <a href="shop/purple-booster.html" class="product-card fade-up">
+        <img src="../images/퍼플샴푸/260123-prooted57601.jpg" alt="Purple Line">
+        <div class="product-info">
+          <h3>Purple Line</h3>
+          <p>두피 탄력 · 무안 적양파</p>
+        </div>
+      </a>
+      <a href="shop/green-cleansing.html" class="product-card fade-up">
+        <img src="../images/그린샴푸/260123-prooted57595.jpg" alt="Green Line">
+        <div class="product-info">
+          <h3>Green Line</h3>
+          <p>두피 진정 · 그린 슈퍼푸드</p>
+        </div>
+      </a>
+      <a href="shop/yellow-mix.html" class="product-card fade-up">
+        <img src="../images/옐로우트리트먼트/260123-prooted57608.jpg" alt="Yellow Line">
+        <div class="product-info">
+          <h3>Yellow Line</h3>
+          <p>손상 케어 · 바나나 에그</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Origin Story -->
+  <section class="origin-section">
+    <div class="origin-bg"></div>
+    <div class="origin-content fade-up">
+      <p class="label">Origin Story</p>
+      <h2>무안의 적양파가<br>두피에 닿기까지</h2>
+      <a href="story/index.html" class="link">Read More →</a>
+    </div>
+  </section>
+
+  <!-- Clinical Proof -->
+  <section class="clinical-section">
+    <p class="label">Proven by Science</p>
+    <div class="clinical-grid fade-up">
+      <div class="clinical-item">
+        <p class="value">탈락 모발 수</p>
+        <p class="desc">감소</p>
+      </div>
+      <div class="clinical-item">
+        <p class="value">두피 탄력</p>
+        <p class="desc">개선</p>
+      </div>
+      <div class="clinical-item">
+        <p class="value">인장 강도</p>
+        <p class="desc">개선</p>
+      </div>
+    </div>
+    <p class="clinical-note">* 인체적용시험 결과 기준</p>
+  </section>
+
+  <!-- Reviews -->
+  <section class="reviews-section">
+    <div class="reviews-track">
+      <div class="review-card">
+        <p class="stars">★★★★★</p>
+        <blockquote>"뿌리부터 달라지는 느낌이에요"</blockquote>
+        <p class="author">김O희</p>
+      </div>
+      <div class="review-card">
+        <p class="stars">★★★★★</p>
+        <blockquote>"두피가 숨쉬는 것 같아요"</blockquote>
+        <p class="author">박O진</p>
+      </div>
+      <div class="review-card">
+        <p class="stars">★★★★★</p>
+        <blockquote>"결이 살아 돌아왔어요"</blockquote>
+        <p class="author">이O수</p>
+      </div>
+      <div class="review-card">
+        <p class="stars">★★★★★</p>
+        <blockquote>"향도 좋고 머릿결도 좋아졌어요"</blockquote>
+        <p class="author">최O영</p>
+      </div>
+      <!-- Duplicate for infinite scroll -->
+      <div class="review-card">
+        <p class="stars">★★★★★</p>
+        <blockquote>"뿌리부터 달라지는 느낌이에요"</blockquote>
+        <p class="author">김O희</p>
+      </div>
+      <div class="review-card">
+        <p class="stars">★★★★★</p>
+        <blockquote>"두피가 숨쉬는 것 같���요"</blockquote>
+        <p class="author">박O진</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo"><img src="../images/로고/prtd_logo_WH.png" alt="PROOTED" style="height: 20px;"></div>
+    <nav class="footer-nav">
+      <a href="shop/index.html">Shop</a>
+      <a href="story/index.html">Story</a>
+      <a href="brand/index.html">Brand</a>
+      <a href="#">Community</a>
+    </nav>
+    <div class="footer-social">
+      <a href="#">Instagram</a>
+      <a href="#">Kakao</a>
+    </div>
+    <p class="footer-copyright">© 2025 Prooted</p>
+  </footer>
+
+  <script>
+    // Intersection Observer for fade-up animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

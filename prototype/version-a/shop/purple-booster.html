@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>퍼플부스터 양파 샴푸 | PROOTED</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=EB+Garamond:ital@1&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4A3728;
+      --secondary: #7B5E57;
+      --accent: #8B5A8B;
+      --background: #F8F5F2;
+      --surface: #FFFFFF;
+      --text: #2D2D2D;
+      --muted: #8A8A8A;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Pretendard', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+    }
+
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 60px;
+      background-color: var(--background);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .header-nav a {
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: 8px;
+      color: var(--primary);
+      margin: 0 40px;
+      text-decoration: none;
+    }
+
+    .product-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+      padding-top: 80px;
+    }
+
+    .product-gallery {
+      position: sticky;
+      top: 80px;
+      height: calc(100vh - 80px);
+      background-color: #EDE8E3;
+    }
+
+    .product-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-details {
+      padding: 100px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .product-line {
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .product-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--primary);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .product-subtitle {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .product-description {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 40px;
+    }
+
+    .product-benefits {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 40px;
+      padding: 32px 0;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .benefit-item {
+      text-align: center;
+    }
+
+    .benefit-item .value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .benefit-item .label {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .product-price {
+      font-size: 28px;
+      color: var(--primary);
+      margin-bottom: 32px;
+    }
+
+    .volume-options {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .volume-option {
+      padding: 12px 24px;
+      border: 1px solid var(--primary);
+      background: transparent;
+      font-size: 13px;
+      color: var(--primary);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .volume-option.active, .volume-option:hover {
+      background: var(--primary);
+      color: var(--surface);
+    }
+
+    .add-to-cart {
+      display: block;
+      width: 100%;
+      padding: 18px;
+      background-color: var(--primary);
+      color: var(--surface);
+      border: none;
+      font-size: 13px;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-bottom: 16px;
+    }
+
+    .add-to-cart:hover {
+      background-color: var(--secondary);
+    }
+
+    .buy-now {
+      display: block;
+      width: 100%;
+      padding: 18px;
+      background: transparent;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      font-size: 13px;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .buy-now:hover {
+      background: var(--primary);
+      color: var(--surface);
+    }
+
+    /* Ingredient Section */
+    .ingredient-section {
+      padding: 120px 80px;
+      background-color: var(--surface);
+    }
+
+    .ingredient-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .ingredient-header .label {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .ingredient-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--primary);
+    }
+
+    .ingredients-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .ingredient-item {
+      text-align: center;
+    }
+
+    .ingredient-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #8B5A8B 0%, #6B4E7B 100%);
+      margin: 0 auto 16px;
+    }
+
+    .ingredient-name {
+      font-size: 14px;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .ingredient-benefit {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Clinical Section */
+    .clinical-section {
+      padding: 120px 80px;
+      background: linear-gradient(135deg, #E8E0F0 0%, #D8D0E0 100%);
+      text-align: center;
+    }
+
+    .clinical-section .label {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .clinical-stats {
+      display: flex;
+      justify-content: center;
+      gap: 100px;
+      margin-bottom: 40px;
+    }
+
+    .stat-item .number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      font-weight: 300;
+      color: var(--accent);
+    }
+
+    .stat-item .unit {
+      font-size: 24px;
+    }
+
+    .stat-item .desc {
+      font-size: 14px;
+      color: var(--primary);
+      margin-top: 8px;
+    }
+
+    .clinical-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* How to Use */
+    .usage-section {
+      padding: 120px 80px;
+      background-color: var(--background);
+    }
+
+    .usage-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .usage-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--primary);
+    }
+
+    .usage-steps {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .usage-step {
+      text-align: center;
+      flex: 1;
+    }
+
+    .step-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .step-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Related Products */
+    .related-section {
+      padding: 100px 80px;
+      background-color: var(--surface);
+    }
+
+    .related-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .related-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--primary);
+    }
+
+    .related-grid {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .related-card {
+      width: 280px;
+      text-decoration: none;
+    }
+
+    .related-image {
+      aspect-ratio: 4/5;
+      background-color: var(--background);
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .related-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .related-info {
+      text-align: center;
+    }
+
+    .related-name {
+      font-size: 15px;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .related-price {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 60px;
+      text-align: center;
+      background-color: var(--primary);
+      color: var(--surface);
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      letter-spacing: 6px;
+    }
+
+    @media (max-width: 1024px) {
+      .product-hero { grid-template-columns: 1fr; }
+      .product-gallery { position: relative; height: 60vh; top: 0; }
+      .product-details { padding: 60px 40px; }
+      .ingredients-grid { grid-template-columns: repeat(2, 1fr); }
+      .clinical-stats { gap: 60px; }
+      .usage-steps { flex-direction: column; gap: 40px; }
+    }
+
+    @media (max-width: 768px) {
+      .header-nav { gap: 24px; }
+      .logo { font-size: 20px; margin: 0 16px; }
+      .product-title { font-size: 32px; }
+      .product-details { padding: 40px 24px; }
+      .product-benefits { flex-direction: column; gap: 20px; }
+      .stat-item .number { font-size: 48px; }
+      .related-grid { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="header-nav">
+      <a href="index.html">Shop</a>
+      <a href="../story/index.html">Story</a>
+      <a href="../index.html" class="logo"><img src="../../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 24px;"></a>
+      <a href="../brand/index.html">Brand</a>
+      <a href="#">Cart</a>
+    </nav>
+  </header>
+
+  <section class="product-hero">
+    <div class="product-gallery">
+      <img src="../../images/퍼플샴푸/260123-prooted57601.jpg" alt="퍼플부스터 샴푸">
+    </div>
+
+    <div class="product-details">
+      <p class="product-line">PURPLE LINE</p>
+      <h1 class="product-title">퍼플부스터<br>양파 샴푸</h1>
+      <p class="product-subtitle">Purple Booster Onion Shampoo</p>
+
+      <p class="product-description">
+        무안 적양파를 비롯한 8가지 퍼플 슈퍼푸드가<br>
+        두피에 힘을 불어넣습니다.<br><br>
+        탈락 모발 수 개선, 두피 탄력 개선.<br>
+        뿌리볼륨까지 살아나는 보라빛 항산화 샴푸.
+      </p>
+
+      <div class="product-benefits">
+        <div class="benefit-item">
+          <p class="value">탈락 모발 수</p>
+          <p class="label">개선</p>
+        </div>
+        <div class="benefit-item">
+          <p class="value">두피 탄력</p>
+          <p class="label">개선</p>
+        </div>
+        <div class="benefit-item">
+          <p class="value">비건 인증</p>
+          <p class="label">한국비건인증원</p>
+        </div>
+      </div>
+
+      <p class="product-price">₩32,000</p>
+
+      <div class="volume-options">
+        <button class="volume-option active">500ml</button>
+        <button class="volume-option">1000ml</button>
+      </div>
+
+      <button class="add-to-cart">장바구니 담기</button>
+      <button class="buy-now">바로 구매</button>
+    </div>
+  </section>
+
+  <section class="ingredient-section">
+    <div class="ingredient-header">
+      <p class="label">Key Ingredients</p>
+      <h2>8가지 퍼플 슈퍼푸드</h2>
+    </div>
+
+    <div class="ingredients-grid">
+      <div class="ingredient-item">
+        <div class="ingredient-icon"></div>
+        <p class="ingredient-name">무안 적양파</p>
+        <p class="ingredient-benefit">두피 탄력</p>
+      </div>
+      <div class="ingredient-item">
+        <div class="ingredient-icon"></div>
+        <p class="ingredient-name">아사이베리</p>
+        <p class="ingredient-benefit">항산화</p>
+      </div>
+      <div class="ingredient-item">
+        <div class="ingredient-icon"></div>
+        <p class="ingredient-name">블루베리</p>
+        <p class="ingredient-benefit">영양 공급</p>
+      </div>
+      <div class="ingredient-item">
+        <div class="ingredient-icon"></div>
+        <p class="ingredient-name">비트</p>
+        <p class="ingredient-benefit">혈행 개선</p>
+      </div>
+      <div class="ingredient-item">
+        <div class="ingredient-icon"></div>
+        <p class="ingredient-name">자색당근</p>
+        <p class="ingredient-benefit">두피 진정</p>
+      </div>
+      <div class="ingredient-item">
+        <div class="ingredient-icon"></div>
+        <p class="ingredient-name">오디</p>
+        <p class="ingredient-benefit">모발 강화</p>
+      </div>
+      <div class="ingredient-item">
+        <div class="ingredient-icon"></div>
+        <p class="ingredient-name">가지</p>
+        <p class="ingredient-benefit">수분 공급</p>
+      </div>
+      <div class="ingredient-item">
+        <div class="ingredient-icon"></div>
+        <p class="ingredient-name">흑미</p>
+        <p class="ingredient-benefit">윤기 부여</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="clinical-section">
+    <p class="label">Clinical Results</p>
+    <div class="clinical-stats">
+      <div class="stat-item">
+        <p class="number">25<span class="unit">%</span></p>
+        <p class="desc">탈락 모발 수 감소</p>
+      </div>
+      <div class="stat-item">
+        <p class="number">18<span class="unit">%</span></p>
+        <p class="desc">두피 탄력 개선</p>
+      </div>
+    </div>
+    <p class="clinical-note">* 인체적용시험 결과 기준</p>
+  </section>
+
+  <section class="usage-section">
+    <div class="usage-header">
+      <h2>How to Use</h2>
+    </div>
+    <div class="usage-steps">
+      <div class="usage-step">
+        <p class="step-number">01</p>
+        <p class="step-title">두피에 도포</p>
+        <p class="step-desc">젖은 두피에 적당량을<br>골고루 도포합니다</p>
+      </div>
+      <div class="usage-step">
+        <p class="step-number">02</p>
+        <p class="step-title">마사지</p>
+        <p class="step-desc">1-2분간 두피를<br>부드럽게 마사지합니다</p>
+      </div>
+      <div class="usage-step">
+        <p class="step-number">03</p>
+        <p class="step-title">헹굼</p>
+        <p class="step-desc">미온수로 깨끗이<br>헹궈냅니다</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="related-section">
+    <div class="related-header">
+      <h2>함께 쓰면 좋은 제품</h2>
+    </div>
+    <div class="related-grid">
+      <a href="yellow-mix.html" class="related-card">
+        <div class="related-image">
+          <img src="../../images/옐로우트리트먼트/260123-prooted57608.jpg" alt="옐로우믹스 트리트먼트">
+        </div>
+        <div class="related-info">
+          <p class="related-name">바나나에그 트리트먼트</p>
+          <p class="related-price">₩26,000</p>
+        </div>
+      </a>
+      <a href="green-cleansing.html" class="related-card">
+        <div class="related-image">
+          <img src="../../images/그린샴푸/260123-prooted57595.jpg" alt="그린클렌징 샴푸">
+        </div>
+        <div class="related-info">
+          <p class="related-name">그린클렌징 케일 샴푸</p>
+          <p class="related-price">₩28,000</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-logo"><img src="../../images/로고/prtd_logo_WH.png" alt="PROOTED" style="height: 20px;"></div>
+  </footer>
+</body>
+</html>

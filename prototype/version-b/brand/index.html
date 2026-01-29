@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BRAND | 프루티드</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <style>
+    :root { --primary: #1A1A1A; --secondary: #6B4E9B; --background: #FFFFFF; --surface: #F9F9F9; --text: #333; --muted: #888; --border: #E5E5E5; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Pretendard', sans-serif; background: var(--background); color: var(--text); }
+    .promo-bar { background: var(--secondary); color: white; text-align: center; padding: 12px; font-size: 14px; }
+    .header { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 24px; font-weight: 700; color: var(--secondary); text-decoration: none; }
+    .nav-menu { display: flex; gap: 32px; }
+    .nav-menu a { font-size: 14px; font-weight: 500; color: var(--text); text-decoration: none; }
+    .nav-menu a.active { color: var(--secondary); }
+    .nav-utils { display: flex; gap: 20px; }
+    .nav-utils a { font-size: 20px; color: var(--text); text-decoration: none; }
+
+    .hero { padding: 100px 40px; text-align: center; background: url('../../images/감성컷/20260123_151250.jpg') center/cover no-repeat; position: relative; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); }
+    .hero h1 { position: relative; z-index: 1; font-size: 48px; font-weight: 600; color: white; margin-bottom: 16px; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+    .hero .subtitle { position: relative; z-index: 1; font-size: 18px; color: rgba(255,255,255,0.9); text-shadow: 0 1px 4px rgba(0,0,0,0.3); }
+
+    .philosophy { padding: 80px 40px; text-align: center; background: white; }
+    .philosophy p { font-size: 20px; line-height: 2; color: var(--text); max-width: 600px; margin: 0 auto; }
+
+    .pillars { padding: 80px 40px; background: var(--surface); }
+    .pillars .container { max-width: 1000px; margin: 0 auto; }
+    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .pillar-card { text-align: center; padding: 48px 32px; background: white; border-radius: 12px; }
+    .pillar-number { font-size: 48px; font-weight: 700; color: var(--secondary); margin-bottom: 16px; }
+    .pillar-card h3 { font-size: 20px; font-weight: 600; color: var(--primary); margin-bottom: 12px; }
+    .pillar-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+    .promise { padding: 80px 40px; background: var(--secondary); text-align: center; color: white; }
+    .promise .label { font-size: 13px; letter-spacing: 2px; opacity: 0.7; margin-bottom: 16px; }
+    .promise h2 { font-size: 32px; font-weight: 600; margin-bottom: 48px; }
+    .promise-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px; max-width: 1000px; margin: 0 auto; }
+    .promise-item { text-align: center; }
+    .promise-icon { font-size: 36px; margin-bottom: 12px; }
+    .promise-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .promise-item p { font-size: 12px; opacity: 0.8; }
+
+    .cta { padding: 80px 40px; text-align: center; background: white; }
+    .cta h2 { font-size: 28px; font-weight: 600; color: var(--primary); margin-bottom: 32px; }
+    .cta-btn { display: inline-block; padding: 16px 48px; background: var(--secondary); color: white; text-decoration: none; font-size: 15px; font-weight: 600; border-radius: 4px; transition: background 0.2s; }
+    .cta-btn:hover { background: #5E3D8B; }
+
+    .footer { background: var(--primary); color: white; padding: 40px; text-align: center; }
+    .footer-logo { font-size: 20px; font-weight: 700; }
+
+    @media (max-width: 1024px) { .pillars-grid { grid-template-columns: 1fr; } .promise-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) { .header { padding: 12px 20px; } .nav-menu { display: none; } .hero, .philosophy, .pillars, .promise, .cta { padding: 48px 20px; } .hero h1 { font-size: 32px; } .promise-grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+  <div class="promo-bar">🎁 첫구매 최대 60% 할인 + 5,000원 쿠폰</div>
+  <header class="header">
+    <a href="../index.html" class="logo"><img src="../../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 24px;"></a>
+    <nav class="nav-menu"><a href="../shop/index.html">SHOP</a><a href="../story/index.html">SUPERFOOD STORY</a><a href="index.html" class="active">BRAND</a><a href="#">COMMUNITY</a></nav>
+    <div class="nav-utils"><a href="#">🔍</a><a href="#">👤</a><a href="#">🛒</a></div>
+  </header>
+
+  <section class="hero"><h1>Raw, Real, and Rooted.</h1><p class="subtitle">잘 먹고, 잘 감는 삶에 대하여.</p></section>
+
+  <section class="philosophy">
+    <p>우리는 식탁 위에서 에너지를 얻습니다.<br>뿌리, 잎, 열매가 가진 생명력을 통해서요.<br><br>이제 그 에너지를<br>당신의 두피와 머릿결에 올립니다.<br><br>가장 신선한 것이 가장 강력하니까.<br>두피가 마시는 첫 번째 슈퍼푸드,<br>프루티드의 회복이 시작됩니다.</p>
+  </section>
+
+  <section class="pillars">
+    <div class="container">
+      <div class="pillars-grid">
+        <div class="pillar-card"><p class="pillar-number">01</p><h3>Rooted</h3><p>슈퍼푸드 원물에서 출발한 설계.<br>뿌리부터 생각하는 두피·모발 케어.</p></div>
+        <div class="pillar-card"><p class="pillar-number">02</p><h3>Proofed</h3><p>느낌이 아닌 숫자로 증명합니다.<br>임상으로 확인된 변화만을 담았습니다.</p></div>
+        <div class="pillar-card"><p class="pillar-number">03</p><h3>Conscious</h3><p>비건 인증, 클린 포뮬라.<br>지금의 선택이 내일의 두피가 되니까.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="promise">
+    <p class="label">OUR PROMISE</p>
+    <h2>넣지 않는 것도 선택입니다</h2>
+    <div class="promise-grid">
+      <div class="promise-item"><div class="promise-icon">🔬</div><h4>임상 검증</h4><p>인체적용시험 완료</p></div>
+      <div class="promise-item"><div class="promise-icon">🌱</div><h4>비건 인증</h4><p>한국비건인증원</p></div>
+      <div class="promise-item"><div class="promise-icon">✓</div><h4>설페이트 FREE</h4><p>두피 자극 최소화</p></div>
+      <div class="promise-item"><div class="promise-icon">✓</div><h4>파라벤 FREE</h4><p>안심 포뮬러</p></div>
+      <div class="promise-item"><div class="promise-icon">✓</div><h4>실리콘 FREE</h4><p>건강한 두피 호흡</p></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>슈퍼푸드 헤어케어의 시작</h2>
+    <a href="../shop/index.html" class="cta-btn">SHOP NOW</a>
+  </section>
+
+  <footer class="footer"><div class="footer-logo"><img src="../../images/로고/prtd_logo_WH.png" alt="PROOTED" style="height: 20px;"></div></footer>
+</body>
+</html>

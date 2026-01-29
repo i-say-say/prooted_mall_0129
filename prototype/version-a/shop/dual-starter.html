@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[입문] 슈퍼푸드 듀얼 스타터 | PROOTED</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=EB+Garamond:ital@1&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <style>
+    :root { --primary: #4A3728; --secondary: #7B5E57; --accent: #8B5A8B; --background: #F8F5F2; --surface: #FFFFFF; --text: #2D2D2D; --muted: #8A8A8A; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Pretendard', sans-serif; background-color: var(--background); color: var(--text); }
+    .header { display: flex; justify-content: center; align-items: center; padding: 24px 60px; background-color: var(--background); position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+    .header-nav { display: flex; align-items: center; gap: 60px; }
+    .header-nav a { font-size: 12px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; color: var(--text); text-decoration: none; }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; letter-spacing: 8px; color: var(--primary); margin: 0 40px; text-decoration: none; }
+    .product-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; padding-top: 80px; }
+    .product-gallery { position: sticky; top: 80px; height: calc(100vh - 80px); background-color: #EDE8E3; }
+    .product-gallery img { width: 100%; height: 100%; object-fit: cover; }
+    .product-details { padding: 100px 80px; display: flex; flex-direction: column; justify-content: center; }
+    .product-line { font-size: 12px; letter-spacing: 3px; color: var(--accent); margin-bottom: 16px; }
+    .product-title { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; color: var(--primary); line-height: 1.3; margin-bottom: 16px; }
+    .product-subtitle { font-family: 'EB Garamond', serif; font-style: italic; font-size: 18px; color: var(--muted); margin-bottom: 40px; }
+    .product-description { font-size: 15px; line-height: 1.8; color: var(--text); margin-bottom: 40px; }
+    .set-composition { display: flex; gap: 24px; margin-bottom: 40px; padding: 32px; background: rgba(0,0,0,0.03); border-radius: 8px; }
+    .set-item { flex: 1; text-align: center; }
+    .set-item img { width: 100px; height: 100px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; }
+    .set-item .name { font-size: 14px; color: var(--primary); margin-bottom: 4px; }
+    .set-item .price { font-size: 13px; color: var(--muted); }
+    .price-box { margin-bottom: 32px; padding: 24px 0; border-top: 1px solid rgba(0,0,0,0.1); border-bottom: 1px solid rgba(0,0,0,0.1); }
+    .original-price { font-size: 16px; color: var(--muted); text-decoration: line-through; margin-bottom: 8px; }
+    .set-price { display: flex; align-items: baseline; gap: 12px; }
+    .set-price .price { font-size: 32px; color: var(--primary); }
+    .set-price .discount { font-size: 14px; color: #E53935; font-weight: 600; }
+    .add-to-cart { display: block; width: 100%; padding: 18px; background-color: var(--primary); color: var(--surface); border: none; font-size: 13px; letter-spacing: 2px; cursor: pointer; transition: background 0.3s; margin-bottom: 16px; }
+    .add-to-cart:hover { background-color: var(--secondary); }
+    .buy-now { display: block; width: 100%; padding: 18px; background: transparent; border: 1px solid var(--primary); color: var(--primary); font-size: 13px; letter-spacing: 2px; cursor: pointer; transition: all 0.3s; }
+    .buy-now:hover { background: var(--primary); color: var(--surface); }
+    .benefits-section { padding: 100px 80px; background-color: var(--surface); text-align: center; }
+    .benefits-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--primary); margin-bottom: 60px; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 900px; margin: 0 auto; }
+    .benefit-card { padding: 32px; background: var(--background); border-radius: 8px; }
+    .benefit-card h3 { font-size: 16px; color: var(--primary); margin-bottom: 8px; }
+    .benefit-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .footer { padding: 60px; text-align: center; background-color: var(--primary); color: var(--surface); }
+    @media (max-width: 1024px) { .product-hero { grid-template-columns: 1fr; } .product-gallery { position: relative; height: 60vh; top: 0; } .product-details { padding: 60px 40px; } .set-composition { flex-direction: column; } .benefits-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .header-nav { gap: 24px; } .logo { font-size: 20px; margin: 0 16px; } .product-title { font-size: 32px; } .product-details { padding: 40px 24px; } }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="header-nav">
+      <a href="index.html">Shop</a>
+      <a href="../story/index.html">Story</a>
+      <a href="../index.html" class="logo"><img src="../../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 24px;"></a>
+      <a href="../brand/index.html">Brand</a>
+      <a href="#">Cart</a>
+    </nav>
+  </header>
+
+  <section class="product-hero">
+    <div class="product-gallery">
+      <img src="../../images/퍼플+그린/260123-prooted57620.jpg" alt="듀얼 스타터 세트">
+    </div>
+    <div class="product-details">
+      <p class="product-line">STARTER SET</p>
+      <h1 class="product-title">[입문] 슈퍼푸드<br>듀얼 스타터</h1>
+      <p class="product-subtitle">Superfood Dual Starter Set</p>
+      <p class="product-description">
+        두 가지 두피 컨디션에 맞춰<br>
+        골라 쓰는 샴푸 2종 입문 세트.<br><br>
+        하루하루 달라지는 두피 상태에 맞춰<br>
+        퍼플과 그린을 번갈아 사용해보세요.
+      </p>
+      <div class="set-composition">
+        <div class="set-item">
+          <img src="../../images/퍼플샴푸/260123-prooted57601.jpg" alt="퍼플부스터 샴푸">
+          <p class="name">퍼플부스터 양파 샴푸</p>
+          <p class="price">₩32,000</p>
+        </div>
+        <div class="set-item">
+          <img src="../../images/그린샴푸/260123-prooted57595.jpg" alt="그린클렌징 샴푸">
+          <p class="name">그린클렌징 케일 샴푸</p>
+          <p class="price">₩28,000</p>
+        </div>
+      </div>
+      <div class="price-box">
+        <p class="original-price">₩60,000</p>
+        <div class="set-price">
+          <span class="price">₩48,000</span>
+          <span class="discount">20% OFF</span>
+        </div>
+      </div>
+      <button class="add-to-cart">장바구니 담기</button>
+      <button class="buy-now">바로 구매</button>
+    </div>
+  </section>
+
+  <section class="benefits-section">
+    <h2>이런 분께 추천해요</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <h3>슈퍼푸드 입문</h3>
+        <p>처음 슈퍼푸드 헤어케어를<br>시작하시는 분</p>
+      </div>
+      <div class="benefit-card">
+        <h3>복합 두피 고민</h3>
+        <p>두피 탄력과 진정 모두<br>필요하신 분</p>
+      </div>
+      <div class="benefit-card">
+        <h3>합리적 시작</h3>
+        <p>두 제품을 할인된 가격에<br>경험하고 싶은 분</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-logo"><img src="../../images/로고/prtd_logo_WH.png" alt="PROOTED" style="height: 20px;"></div>
+  </footer>
+</body>
+</html>

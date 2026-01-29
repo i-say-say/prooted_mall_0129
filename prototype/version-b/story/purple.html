@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purple Complex | 프루티드</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <style>
+    :root { --primary: #1A1A1A; --secondary: #6B4E9B; --background: #FFFFFF; --surface: #F9F9F9; --text: #333; --muted: #888; --border: #E5E5E5; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Pretendard', sans-serif; background: var(--background); color: var(--text); }
+    .promo-bar { background: var(--secondary); color: white; text-align: center; padding: 12px; font-size: 14px; }
+    .header { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 24px; font-weight: 700; color: var(--secondary); text-decoration: none; }
+    .nav-menu { display: flex; gap: 32px; }
+    .nav-menu a { font-size: 14px; font-weight: 500; color: var(--text); text-decoration: none; }
+    .nav-utils { display: flex; gap: 20px; }
+    .nav-utils a { font-size: 20px; color: var(--text); text-decoration: none; }
+
+    .hero { padding: 80px 40px; text-align: center; background: linear-gradient(135deg, #F5F0FA 0%, #E8E0F0 100%); }
+    .hero-tag { font-size: 12px; letter-spacing: 2px; color: var(--secondary); margin-bottom: 16px; }
+    .hero h1 { font-size: 40px; font-weight: 600; color: var(--primary); margin-bottom: 12px; }
+    .hero .subtitle { font-size: 16px; color: var(--muted); }
+
+    .intro { padding: 60px 40px; text-align: center; background: white; }
+    .intro p { font-size: 18px; line-height: 2; color: var(--text); max-width: 600px; margin: 0 auto; }
+
+    .ingredients { padding: 60px 40px; background: var(--surface); }
+    .ingredients .container { max-width: 1000px; margin: 0 auto; }
+    .section-title { font-size: 24px; font-weight: 600; color: var(--primary); margin-bottom: 32px; text-align: center; }
+    .ing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .ing-card { text-align: center; padding: 24px; background: white; border-radius: 8px; }
+    .ing-icon { width: 60px; height: 60px; background: linear-gradient(135deg, #8B5A8B, #6B4E9B); border-radius: 50%; margin: 0 auto 12px; }
+    .ing-card h4 { font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+    .ing-card p { font-size: 12px; color: var(--muted); }
+
+    .benefits { padding: 80px 40px; background: linear-gradient(135deg, #8B5A8B, #6B4E9B); text-align: center; color: white; }
+    .benefits h2 { font-size: 28px; font-weight: 600; margin-bottom: 48px; }
+    .benefits-grid { display: flex; justify-content: center; gap: 80px; }
+    .benefit-item .number { font-size: 56px; font-weight: 700; }
+    .benefit-item .desc { font-size: 14px; margin-top: 8px; opacity: 0.9; }
+
+    .product { padding: 60px 40px; background: white; text-align: center; }
+    .product h3 { font-size: 20px; font-weight: 600; margin-bottom: 32px; }
+    .product-card { display: inline-block; text-decoration: none; }
+    .product-image { width: 280px; height: 280px; background: var(--surface); border-radius: 8px; margin-bottom: 16px; overflow: hidden; }
+    .product-image img { width: 100%; height: 100%; object-fit: cover; }
+    .product-card h4 { font-size: 16px; color: var(--primary); margin-bottom: 8px; }
+    .product-card .price { font-size: 15px; color: var(--muted); margin-bottom: 16px; }
+    .product-card .btn { display: inline-block; padding: 12px 32px; background: var(--secondary); color: white; border-radius: 4px; font-size: 14px; font-weight: 600; text-decoration: none; }
+
+    .footer { background: var(--primary); color: white; padding: 40px; text-align: center; }
+    .footer-logo { font-size: 20px; font-weight: 700; }
+
+    @media (max-width: 768px) { .header { padding: 12px 20px; } .nav-menu { display: none; } .hero, .intro, .ingredients, .benefits, .product { padding: 40px 20px; } .hero h1 { font-size: 28px; } .ing-grid { grid-template-columns: repeat(2, 1fr); } .benefits-grid { flex-direction: column; gap: 32px; } }
+  </style>
+</head>
+<body>
+  <div class="promo-bar">🎁 첫구매 최대 60% 할인 + 5,000원 쿠폰</div>
+  <header class="header">
+    <a href="../index.html" class="logo"><img src="../../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 24px;"></a>
+    <nav class="nav-menu"><a href="../shop/index.html">SHOP</a><a href="index.html">SUPERFOOD STORY</a><a href="../brand/index.html">BRAND</a><a href="#">COMMUNITY</a></nav>
+    <div class="nav-utils"><a href="#">🔍</a><a href="#">👤</a><a href="#">🛒</a></div>
+  </header>
+
+  <section class="hero"><p class="hero-tag">PURPLE LINE</p><h1>Purple Complex</h1><p class="subtitle">Anti-Hair Loss & Antioxidant</p></section>
+
+  <section class="intro"><p>무안 적양파를 비롯한 8가지 퍼플 슈퍼푸드가<br>강력한 항산화 작용으로 두피에 힘을 불어넣습니다.<br><br>보라빛 원료들이 만들어내는 시너지,<br>두피 탄력 회복의 시작점.</p></section>
+
+  <section class="ingredients">
+    <div class="container">
+      <h2 class="section-title">8가지 퍼플 슈퍼푸드</h2>
+      <div class="ing-grid">
+        <div class="ing-card"><div class="ing-icon"></div><h4>무안 적양파</h4><p>두피 탄력</p></div>
+        <div class="ing-card"><div class="ing-icon"></div><h4>아사이베리</h4><p>항산화</p></div>
+        <div class="ing-card"><div class="ing-icon"></div><h4>블루베리</h4><p>영양 공급</p></div>
+        <div class="ing-card"><div class="ing-icon"></div><h4>비트</h4><p>혈행 개선</p></div>
+        <div class="ing-card"><div class="ing-icon"></div><h4>자색당근</h4><p>두피 진정</p></div>
+        <div class="ing-card"><div class="ing-icon"></div><h4>오디</h4><p>모발 강화</p></div>
+        <div class="ing-card"><div class="ing-icon"></div><h4>가지</h4><p>수분 공급</p></div>
+        <div class="ing-card"><div class="ing-icon"></div><h4>흑미</h4><p>윤기 부여</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <h2>Clinical Results</h2>
+    <div class="benefits-grid">
+      <div class="benefit-item"><p class="number">25%↓</p><p class="desc">탈락 모발 수 감소</p></div>
+      <div class="benefit-item"><p class="number">18%↑</p><p class="desc">두피 탄력 개선</p></div>
+    </div>
+  </section>
+
+  <section class="product">
+    <h3>이 성분이 담긴 제품</h3>
+    <a href="../shop/purple-booster.html" class="product-card">
+      <div class="product-image"><img src="../../images/퍼플샴푸/260123-prooted57601.jpg" alt="퍼플부스터 샴푸"></div>
+      <h4>퍼플부스터 양파 샴푸</h4>
+      <p class="price">₩32,000</p>
+      <span class="btn">제품 보기</span>
+    </a>
+  </section>
+
+  <footer class="footer"><div class="footer-logo"><img src="../../images/로고/prtd_logo_WH.png" alt="PROOTED" style="height: 20px;"></div></footer>
+</body>
+</html>

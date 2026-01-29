@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHOP | PROOTED</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4A3728;
+      --secondary: #7B5E57;
+      --accent: #8B5A8B;
+      --background: #F8F5F2;
+      --surface: #FFFFFF;
+      --text: #2D2D2D;
+      --muted: #8A8A8A;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Pretendard', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+    }
+
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 60px;
+      background-color: var(--background);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .header-nav a {
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .header-nav a.active {
+      color: var(--accent);
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: 8px;
+      color: var(--primary);
+      margin: 0 40px;
+      text-decoration: none;
+    }
+
+    .page-hero {
+      padding: 100px 60px 60px;
+      text-align: center;
+    }
+
+    .page-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      letter-spacing: 12px;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .page-hero p {
+      font-size: 14px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 40px 60px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .filter-item {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .filter-item:hover, .filter-item.active {
+      color: var(--primary);
+    }
+
+    .product-card.hidden, .sets-section.hidden {
+      display: none;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      padding: 80px 120px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .product-image {
+      position: relative;
+      aspect-ratio: 4/5;
+      overflow: hidden;
+      background-color: var(--surface);
+      margin-bottom: 24px;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      padding: 6px 12px;
+      background-color: var(--primary);
+      color: var(--surface);
+    }
+
+    .product-info {
+      text-align: center;
+    }
+
+    .product-line {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .product-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .product-price {
+      font-size: 15px;
+      color: var(--primary);
+    }
+
+    .sets-section {
+      padding: 100px 120px;
+      background-color: var(--surface);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      letter-spacing: 4px;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .sets-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .set-card {
+      display: flex;
+      gap: 24px;
+      padding: 32px;
+      background-color: var(--background);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s;
+    }
+
+    .set-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .set-image {
+      width: 120px;
+      height: 120px;
+      background-color: #E8E0D8;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .set-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .set-info h3 {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .set-info .composition {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .set-info .desc {
+      font-size: 13px;
+      color: var(--secondary);
+      font-style: italic;
+    }
+
+    .footer {
+      padding: 60px;
+      text-align: center;
+      background-color: var(--primary);
+      color: var(--surface);
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      letter-spacing: 6px;
+      margin-bottom: 24px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+
+    @media (max-width: 1024px) {
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 60px 40px;
+      }
+      .sets-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-nav { gap: 24px; }
+      .logo { font-size: 20px; margin: 0 20px; }
+      .page-hero { padding: 60px 24px 40px; }
+      .page-hero h1 { font-size: 32px; }
+      .products-grid { grid-template-columns: 1fr; padding: 40px 24px; }
+      .sets-section { padding: 60px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="header-nav">
+      <a href="index.html" class="active">Shop</a>
+      <a href="../story/index.html">Story</a>
+      <a href="../index.html" class="logo"><img src="../../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 24px;"></a>
+      <a href="../brand/index.html">Brand</a>
+      <a href="#">Cart</a>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <h1>S H O P</h1>
+    <p>슈퍼푸드 헤어케어 컬렉션</p>
+  </section>
+
+  <nav class="filter-bar">
+    <button class="filter-item active" data-filter="all">전체</button>
+    <button class="filter-item" data-filter="shampoo">샴푸</button>
+    <button class="filter-item" data-filter="treatment">트리트먼트</button>
+    <button class="filter-item" data-filter="set">세트</button>
+  </nav>
+
+  <section class="products-grid">
+    <a href="purple-booster.html" class="product-card" data-category="shampoo">
+      <div class="product-image">
+        <img src="../../images/퍼플샴푸/260123-prooted57601.jpg" alt="퍼플부스터 샴푸">
+        <span class="product-badge">BEST</span>
+      </div>
+      <div class="product-info">
+        <p class="product-line">PURPLE LINE</p>
+        <h3 class="product-name">퍼플부스터 양파 샴푸</h3>
+        <p class="product-desc">무안 적양파로 채우는 두피 탄력</p>
+        <p class="product-price">₩32,000</p>
+      </div>
+    </a>
+
+    <a href="green-cleansing.html" class="product-card" data-category="shampoo">
+      <div class="product-image">
+        <img src="../../images/그린샴푸/260123-prooted57595.jpg" alt="그린클렌징 샴푸">
+        <span class="product-badge">NEW</span>
+      </div>
+      <div class="product-info">
+        <p class="product-line">GREEN LINE</p>
+        <h3 class="product-name">그린클렌징 케일 샴푸</h3>
+        <p class="product-desc">두피 진정 & 데일리 클렌징</p>
+        <p class="product-price">₩28,000</p>
+      </div>
+    </a>
+
+    <a href="yellow-mix.html" class="product-card" data-category="treatment">
+      <div class="product-image">
+        <img src="../../images/옐로우트리트먼트/260123-prooted57608.jpg" alt="옐로우믹스 트리트먼트">
+      </div>
+      <div class="product-info">
+        <p class="product-line">YELLOW LINE</p>
+        <h3 class="product-name">바나나에그 트리트먼트</h3>
+        <p class="product-desc">단백질 집중 케어 & 즉각적 윤기</p>
+        <p class="product-price">₩26,000</p>
+      </div>
+    </a>
+  </section>
+
+  <section class="sets-section" data-category="set">
+    <div class="section-header">
+      <h2>CURATED SETS</h2>
+      <p>당신의 루틴을 위한 조합</p>
+    </div>
+
+    <div class="sets-grid">
+      <a href="dual-starter.html" class="set-card">
+        <div class="set-image"><img src="../../images/퍼플+그린/260123-prooted57620.jpg" alt="듀얼 스타터"></div>
+        <div class="set-info">
+          <h3>[입문] 슈퍼푸드 듀얼 스타터</h3>
+          <p class="composition">퍼플 샴푸 + 그린 샴푸</p>
+          <p class="desc">두 가지 두피 컨디션에 맞춘 입문 세트</p>
+        </div>
+      </a>
+
+      <a href="essential-routine.html" class="set-card">
+        <div class="set-image"><img src="../../images/퍼플+그린+옐로우/260123-prooted57627.jpg" alt="에센셜 루틴"></div>
+        <div class="set-info">
+          <h3>[BEST] 뿌리부터 결까지, 에센셜 루틴</h3>
+          <p class="composition">퍼플 샴푸 + 옐로우 트리트먼트</p>
+          <p class="desc">힘없는 뿌리는 퍼플로 잡고, 거친 머릿결은 바나나로 채우는 가장 완벽한 밸런스</p>
+        </div>
+      </a>
+
+      <a href="deep-clean.html" class="set-card">
+        <div class="set-image"><img src="../../images/퍼플+그린+옐로우/260123-prooted57661.jpg" alt="딥 클린 세트"></div>
+        <div class="set-info">
+          <h3>[FRESH] 딥 클린 & 실키 리페어</h3>
+          <p class="composition">그린 샴푸 + 옐로우 트리트먼트</p>
+          <p class="desc">유분은 비우고 영양만 남기는 루틴</p>
+        </div>
+      </a>
+
+      <a href="all-package.html" class="set-card">
+        <div class="set-image"><img src="../../images/퍼플+그린+옐로우/260123-prooted57963.jpg" alt="프루티드 패키지"></div>
+        <div class="set-info">
+          <h3>[ALL] 프루티드 패키지</h3>
+          <p class="composition">퍼플 + 그린 + 옐로우</p>
+          <p class="desc">탈모/진정/물미역 3종 풀 케어</p>
+        </div>
+      </a>
+
+      <a href="gift-kit.html" class="set-card">
+        <div class="set-image"><img src="../../images/퍼플+그린+옐로우/260123-prooted57922.jpg" alt="웰컴 투 슈퍼푸드 키트"></div>
+        <div class="set-info">
+          <h3>[GIFT] 웰컴 투 슈퍼푸드 키트</h3>
+          <p class="composition">퍼플 + 그린 + 옐로우</p>
+          <p class="desc">호불호 없는 센스 있는 선물</p>
+        </div>
+      </a>
+
+      <a href="purple-booster-set.html" class="set-card">
+        <div class="set-image"><img src="../../images/퍼플샴푸/260123-prooted57601.jpg" alt="퍼플 부스터 강화 세트"></div>
+        <div class="set-info">
+          <h3>[탈모케어] 퍼플 부스터 강화 세트</h3>
+          <p class="composition">퍼플 샴푸 x 2</p>
+          <p class="desc">매일 쓰는 탈모 케어, 끊기지 않도록</p>
+        </div>
+      </a>
+
+      <a href="green-reset-set.html" class="set-card">
+        <div class="set-image"><img src="../../images/그린샴푸/260123-prooted57595.jpg" alt="그린 리셋 정화 세트"></div>
+        <div class="set-info">
+          <h3>[지성두피] 그린 리셋 정화 세트</h3>
+          <p class="composition">그린 샴푸 x 2</p>
+          <p class="desc">지성두피의 매일매일 상쾌한 아침</p>
+        </div>
+      </a>
+
+      <a href="yellow-protein-set.html" class="set-card">
+        <div class="set-image"><img src="../../images/옐로우트리트먼트/260123-prooted57608.jpg" alt="옐로우 단백질 폭탄 세트"></div>
+        <div class="set-info">
+          <h3>[손상모개선] 옐로우 단백질 폭탄 세트</h3>
+          <p class="composition">옐로우 트리트먼트 x 3</p>
+          <p class="desc">아낌없이 바르는 물미역 광채 솔루션</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-logo"><img src="../../images/로고/prtd_logo_WH.png" alt="PROOTED" style="height: 20px;"></div>
+    <nav class="footer-links">
+      <a href="index.html">Shop</a>
+      <a href="../story/index.html">Story</a>
+      <a href="../brand/index.html">Brand</a>
+      <a href="#">Instagram</a>
+    </nav>
+  </footer>
+
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-item');
+    const productCards = document.querySelectorAll('.product-card');
+    const setsSection = document.querySelector('.sets-section');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active state
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const filter = button.dataset.filter;
+
+        // Filter products
+        productCards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        // Filter sets section
+        if (filter === 'all' || filter === 'set') {
+          setsSection.classList.remove('hidden');
+        } else {
+          setsSection.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

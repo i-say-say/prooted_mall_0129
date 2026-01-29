@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Superfood Story | PROOTED</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=EB+Garamond:ital@1&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4A3728;
+      --secondary: #7B5E57;
+      --accent-purple: #8B5A8B;
+      --accent-green: #4A7C59;
+      --accent-yellow: #C9A227;
+      --background: #F8F5F2;
+      --surface: #FFFFFF;
+      --text: #2D2D2D;
+      --muted: #8A8A8A;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Pretendard', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+    }
+
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 60px;
+      background-color: var(--background);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .header-nav a {
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .header-nav a.active {
+      color: var(--accent-purple);
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: 8px;
+      color: var(--primary);
+      margin: 0 40px;
+      text-decoration: none;
+    }
+
+    .hero {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: url('../../images/감성컷/20260123_151431.jpg') center/cover no-repeat;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-label {
+      position: relative;
+      z-index: 1;
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      color: white;
+      line-height: 1.4;
+      margin-bottom: 32px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .hero p {
+      position: relative;
+      z-index: 1;
+      font-size: 16px;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.8;
+      max-width: 500px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    }
+
+    .philosophy-section {
+      padding: 120px 80px;
+      background-color: var(--surface);
+    }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .philosophy-item {
+      text-align: center;
+    }
+
+    .philosophy-item h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 300;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .philosophy-item p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .lines-section {
+      padding: 100px 0;
+    }
+
+    .line-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 600px;
+    }
+
+    .line-block:nth-child(even) {
+      direction: rtl;
+    }
+
+    .line-block:nth-child(even) > * {
+      direction: ltr;
+    }
+
+    .line-image {
+      background-size: cover;
+      background-position: center;
+    }
+
+    .line-image.purple {
+      background: linear-gradient(135deg, #8B5A8B 0%, #6B4E7B 100%);
+    }
+
+    .line-image.green {
+      background: linear-gradient(135deg, #4A7C59 0%, #3A6C49 100%);
+    }
+
+    .line-image.yellow {
+      background: linear-gradient(135deg, #C9A227 0%, #B89217 100%);
+    }
+
+    .line-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px;
+      background-color: var(--surface);
+    }
+
+    .line-tag {
+      font-size: 12px;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+    }
+
+    .line-tag.purple { color: var(--accent-purple); }
+    .line-tag.green { color: var(--accent-green); }
+    .line-tag.yellow { color: var(--accent-yellow); }
+
+    .line-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .line-content .subtitle {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .line-content p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .line-benefits {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .benefit-tag {
+      font-size: 12px;
+      padding: 6px 12px;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .line-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    .clean-section {
+      padding: 120px 80px;
+      background-color: var(--background);
+      text-align: center;
+    }
+
+    .clean-section .label {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .clean-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--primary);
+      margin-bottom: 60px;
+    }
+
+    .clean-grid {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+    }
+
+    .clean-item {
+      text-align: center;
+    }
+
+    .clean-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .clean-item h4 {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .clean-item p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 60px;
+      text-align: center;
+      background-color: var(--primary);
+      color: var(--surface);
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      letter-spacing: 6px;
+    }
+
+    @media (max-width: 1024px) {
+      .philosophy-grid { grid-template-columns: 1fr; gap: 40px; }
+      .line-block { grid-template-columns: 1fr; }
+      .line-block:nth-child(even) { direction: ltr; }
+      .line-image { height: 300px; }
+      .line-content { padding: 60px 40px; }
+    }
+
+    @media (max-width: 768px) {
+      .header-nav { gap: 24px; }
+      .logo { font-size: 20px; margin: 0 16px; }
+      .hero { height: auto; padding: 80px 24px; }
+      .hero h1 { font-size: 32px; }
+      .philosophy-section { padding: 60px 24px; }
+      .line-content { padding: 40px 24px; }
+      .line-content h2 { font-size: 28px; }
+      .clean-section { padding: 60px 24px; }
+      .clean-grid { flex-direction: column; gap: 40px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="header-nav">
+      <a href="../shop/index.html">Shop</a>
+      <a href="index.html" class="active">Story</a>
+      <a href="../index.html" class="logo"><img src="../../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 24px;"></a>
+      <a href="../brand/index.html">Brand</a>
+      <a href="#">Cart</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <p class="hero-label">Superfood Story</p>
+    <h1>Rooted in Superfood,<br>Proven by Science</h1>
+    <p>
+      국내산 무안 적양파를 비롯한 핵심 원료와<br>
+      20여 가지 자연 유래 부스터를<br>
+      최적의 비율로 배합합니다.
+    </p>
+  </section>
+
+  <section class="philosophy-section">
+    <div class="philosophy-grid">
+      <div class="philosophy-item">
+        <h3>Origin & Synergy</h3>
+        <p>
+          슈퍼푸드 원물 그대로의<br>
+          생명력을 담습니다.<br>
+          뿌리, 잎, 열매의 시너지.
+        </p>
+      </div>
+      <div class="philosophy-item">
+        <h3>Clinical Efficacy</h3>
+        <p>
+          탈락 모발 수 감소<br>
+          두피 탄력 개선<br>
+          모발 인장 강도 개선
+        </p>
+      </div>
+      <div class="philosophy-item">
+        <h3>Clean Formula</h3>
+        <p>
+          설페이트 / 파라벤 / 실리콘 FREE<br>
+          한국 비건 인증
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="lines-section">
+    <div class="line-block">
+      <div class="line-image purple"></div>
+      <div class="line-content">
+        <p class="line-tag purple">PURPLE LINE</p>
+        <h2>Purple Complex</h2>
+        <p class="subtitle">Anti-Hair Loss & Antioxidant</p>
+        <p>
+          무안 적양파, 아사이베리, 블루베리, 비트 등<br>
+          8가지 퍼플 슈퍼푸드가 두피에 힘을 불어넣습니다.<br>
+          강력한 항산화 작용으로 두피 탄력을 회복합니다.
+        </p>
+        <div class="line-benefits">
+          <span class="benefit-tag">#탈모완화기능성</span>
+          <span class="benefit-tag">#두피탄력</span>
+          <span class="benefit-tag">#무안적양파</span>
+        </div>
+        <a href="purple.html" class="line-link">자세히 보기 →</a>
+      </div>
+    </div>
+
+    <div class="line-block">
+      <div class="line-image green"></div>
+      <div class="line-content">
+        <p class="line-tag green">GREEN LINE</p>
+        <h2>Green Complex</h2>
+        <p class="subtitle">Soothing & Deep Cleansing</p>
+        <p>
+          케일, 시금치, 브로콜리 등<br>
+          그린 슈퍼푸드가 두피를 맑고 건강하게 정화합니다.<br>
+          민감한 두피도 편안하게 사용할 수 있습니다.
+        </p>
+        <div class="line-benefits">
+          <span class="benefit-tag">#문제성두피해결</span>
+          <span class="benefit-tag">#수분진정</span>
+          <span class="benefit-tag">#그린클렌즈</span>
+        </div>
+        <a href="green.html" class="line-link">자세히 보기 →</a>
+      </div>
+    </div>
+
+    <div class="line-block">
+      <div class="line-image yellow"></div>
+      <div class="line-content">
+        <p class="line-tag yellow">YELLOW LINE</p>
+        <h2>Yellow Complex</h2>
+        <p class="subtitle">Damage Repair & Protein</p>
+        <p>
+          바나나, 달걀, 꿀 등<br>
+          옐로우 슈퍼푸드가 극손상 모발에 단백질을 채웁니다.<br>
+          물미역 광채로 즉각적인 윤기를 선사합니다.
+        </p>
+        <div class="line-benefits">
+          <span class="benefit-tag">#극손상모케어</span>
+          <span class="benefit-tag">#단백질폭탄</span>
+          <span class="benefit-tag">#물미역광채</span>
+        </div>
+        <a href="yellow.html" class="line-link">자세히 보기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="clean-section">
+    <p class="label">Our Promise</p>
+    <h2>넣지 않는 것도 선택입니다</h2>
+    <div class="clean-grid">
+      <div class="clean-item">
+        <div class="clean-icon">🔬</div>
+        <h4>임상 검증</h4>
+        <p>인체적용시험 완료</p>
+      </div>
+      <div class="clean-item">
+        <div class="clean-icon">🌱</div>
+        <h4>비건 인증</h4>
+        <p>한국비건인증원</p>
+      </div>
+      <div class="clean-item">
+        <div class="clean-icon">✓</div>
+        <h4>설페이트 FREE</h4>
+        <p>두피 자극 최소화</p>
+      </div>
+      <div class="clean-item">
+        <div class="clean-icon">✓</div>
+        <h4>파라벤 FREE</h4>
+        <p>안심 포뮬러</p>
+      </div>
+      <div class="clean-item">
+        <div class="clean-icon">✓</div>
+        <h4>실리콘 FREE</h4>
+        <p>건강한 두피 호흡</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-logo"><img src="../../images/로고/prtd_logo_WH.png" alt="PROOTED" style="height: 20px;"></div>
+  </footer>
+</body>
+</html>

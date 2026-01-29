@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프루티드 | 슈퍼푸드 헤어케어 솔루션</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1A1A1A;
+      --secondary: #6B4E9B;
+      --accent: #4CAF50;
+      --background: #FFFFFF;
+      --surface: #F9F9F9;
+      --text: #333333;
+      --muted: #888888;
+      --border: #E5E5E5;
+      --font-main: 'Pretendard', -apple-system, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Promo Bar */
+    .promo-bar {
+      background-color: var(--secondary);
+      color: white;
+      text-align: center;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .promo-bar .close {
+      position: absolute;
+      right: 20px;
+      cursor: pointer;
+      opacity: 0.8;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 40px;
+      background-color: var(--background);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--secondary);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-menu a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-menu a:hover {
+      color: var(--secondary);
+    }
+
+    .nav-utils {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-utils a {
+      font-size: 20px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    /* Hero Carousel */
+    .hero-carousel {
+      position: relative;
+      height: 500px;
+      overflow: hidden;
+    }
+
+    .hero-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .hero-slide::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 600px;
+      padding: 40px;
+    }
+
+    .hero-content h1 {
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: white;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero-content p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 32px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 14px 32px;
+      background-color: var(--secondary);
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+
+    .hero-cta:hover {
+      background-color: #5E3D8B;
+    }
+
+    .hero-dots {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+    }
+
+    .hero-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--border);
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .hero-dot.active {
+      background-color: var(--secondary);
+    }
+
+    /* Section Title */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .section-link {
+      font-size: 14px;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .section-link:hover {
+      color: var(--secondary);
+    }
+
+    /* Product Grid */
+    .products-section {
+      padding: 60px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      background-color: var(--background);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transform: translateY(-4px);
+    }
+
+    .product-image {
+      position: relative;
+      aspect-ratio: 1;
+      background-color: var(--surface);
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .badge {
+      padding: 4px 8px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+
+    .badge.best {
+      background-color: var(--secondary);
+      color: white;
+    }
+
+    .badge.new {
+      background-color: var(--accent);
+      color: white;
+    }
+
+    .product-info {
+      padding: 16px;
+    }
+
+    .product-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .product-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .product-tag {
+      font-size: 11px;
+      color: var(--secondary);
+      background-color: #F5F0FA;
+      padding: 4px 8px;
+      border-radius: 12px;
+    }
+
+    .product-price {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .product-rating .stars {
+      color: #FFB800;
+    }
+
+    /* Concern Tabs */
+    .concern-section {
+      padding: 60px 40px;
+      background-color: var(--surface);
+    }
+
+    .concern-section .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .concern-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .concern-tab {
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background-color: var(--background);
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .concern-tab:hover {
+      border-color: var(--secondary);
+    }
+
+    .concern-tab.active {
+      background-color: var(--secondary);
+      border-color: var(--secondary);
+      color: white;
+    }
+
+    .concern-content {
+      background-color: var(--background);
+      border-radius: 12px;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .concern-text h3 {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .concern-text p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .concern-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    /* Our Promise */
+    .promise-section {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .promise-card {
+      text-align: center;
+      padding: 40px 24px;
+      background-color: var(--surface);
+      border-radius: 12px;
+    }
+
+    .promise-icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .promise-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .promise-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Superfood Story */
+    .story-section {
+      padding: 60px 40px;
+      background-color: #F5F0FA;
+    }
+
+    .story-section .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .story-card {
+      background-color: var(--background);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+
+    .story-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .story-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .story-image.purple {
+      background: linear-gradient(135deg, #8B5A8B 0%, #6B4E9B 100%);
+    }
+
+    .story-image.green {
+      background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+    }
+
+    .story-image.yellow {
+      background: linear-gradient(135deg, #FFB800 0%, #FF9800 100%);
+    }
+
+    .story-content {
+      padding: 24px;
+      text-align: center;
+    }
+
+    .story-content h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .story-content p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* Reviews */
+    .reviews-section {
+      padding: 60px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .reviews-summary {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .reviews-score {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .reviews-score .stars {
+      color: #FFB800;
+    }
+
+    .reviews-count {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .review-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .review-item {
+      padding: 24px;
+      background-color: var(--surface);
+      border-radius: 8px;
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .review-stars {
+      color: #FFB800;
+    }
+
+    .review-date {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .review-text {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .review-author {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--primary);
+      color: white;
+      padding: 60px 40px 40px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .footer-column a {
+      display: block;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: color 0.2s;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    .footer-divider {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-info {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 16px;
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-legal a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .promise-grid,
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        padding: 12px 20px;
+      }
+
+      .nav-menu {
+        display: none;
+      }
+
+      .hero-carousel {
+        height: 400px;
+      }
+
+      .hero-content h1 {
+        font-size: 24px;
+      }
+
+      .products-section,
+      .concern-section,
+      .promise-section,
+      .story-section,
+      .reviews-section {
+        padding: 40px 20px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .concern-tabs {
+        overflow-x: auto;
+        padding-bottom: 8px;
+      }
+
+      .concern-content {
+        flex-direction: column;
+        padding: 24px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Promo Bar -->
+  <div class="promo-bar">
+    <span>🎁</span> 첫구매 최대 60% 할인 + 5,000원 쿠폰
+    <span class="close">✕</span>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo"><img src="../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 24px;"></div>
+    <nav class="nav-menu">
+      <a href="shop/index.html">SHOP</a>
+      <a href="story/index.html">SUPERFOOD STORY</a>
+      <a href="brand/index.html">BRAND</a>
+      <a href="#">COMMUNITY</a>
+    </nav>
+    <div class="nav-utils">
+      <a href="#">🔍</a>
+      <a href="#">👤</a>
+      <a href="#">🛒</a>
+    </div>
+  </header>
+
+  <!-- Hero Carousel -->
+  <section class="hero-carousel">
+    <div class="hero-slide active" style="background-image: url('../images/감성컷/20260123_151118.jpg');">
+      <div class="hero-content">
+        <h1>슈퍼푸드 원물에서 찾은<br>두피·헤어 솔루션, 프루티드</h1>
+        <p>무안 적양파를 비롯한 자연 유래 성분으로<br>두피와 모발을 건강하게</p>
+        <a href="shop/index.html" class="hero-cta">제품 보러가기 →</a>
+      </div>
+    </div>
+    <div class="hero-slide" style="background-image: url('../images/감성컷/20260123_151459.jpg');">
+      <div class="hero-content">
+        <h1>가입 후 딱 한 번,<br>UP TO 60%</h1>
+        <p>첫 구매 고객을 위한 단 한번의 기회<br>5,000원 쿠폰 + 최대 60% 할인</p>
+        <a href="shop/index.html" class="hero-cta">혜택 받고 시작하기 →</a>
+      </div>
+    </div>
+    <div class="hero-slide" style="background-image: url('../images/감성컷/20260123_152621.jpg');">
+      <div class="hero-content">
+        <h1>무안 적양파로 채우는<br>두피 탄력</h1>
+        <p>탈락 모발 수 개선 / 두피 탄력 개선<br>뿌리볼륨까지 살아나는 보라빛 항산화 샴푸</p>
+        <a href="shop/purple-booster.html" class="hero-cta">퍼플부스터 샴푸 보기 →</a>
+      </div>
+    </div>
+    <div class="hero-dots">
+      <div class="hero-dot active" data-slide="0"></div>
+      <div class="hero-dot" data-slide="1"></div>
+      <div class="hero-dot" data-slide="2"></div>
+    </div>
+  </section>
+
+  <!-- Best Sellers -->
+  <section class="products-section">
+    <div class="section-header">
+      <h2 class="section-title">BEST SELLERS</h2>
+      <a href="shop/index.html" class="section-link">전체보기 →</a>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-image">
+          <img src="../images/퍼플샴푸/260123-prooted57601.jpg" alt="퍼플부스터 샴푸">
+          <div class="product-badge">
+            <span class="badge best">BEST</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">퍼플부스터 양파 샴푸</h3>
+          <div class="product-tags">
+            <span class="product-tag">#탈모케어</span>
+            <span class="product-tag">#두피탄력</span>
+            <span class="product-tag">#비건</span>
+          </div>
+          <div class="product-price">₩32,000</div>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span>4.8 (1,234)</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image">
+          <img src="../images/그린샴푸/260123-prooted57595.jpg" alt="그린클렌징 샴푸">
+          <div class="product-badge">
+            <span class="badge new">NEW</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">그린클렌징 케일 샴푸</h3>
+          <div class="product-tags">
+            <span class="product-tag">#두피진정</span>
+            <span class="product-tag">#피지케어</span>
+            <span class="product-tag">#비건</span>
+          </div>
+          <div class="product-price">₩28,000</div>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span>4.7 (856)</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image">
+          <img src="../images/옐로우트리트먼트/260123-prooted57608.jpg" alt="옐로우믹스 트리트먼트">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">바나나에그 트리트먼트</h3>
+          <div class="product-tags">
+            <span class="product-tag">#손상케어</span>
+            <span class="product-tag">#단백질</span>
+            <span class="product-tag">#윤기</span>
+          </div>
+          <div class="product-price">₩26,000</div>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span>4.9 (2,156)</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image">
+          <img src="../images/퍼플+그린/260123-prooted57620.jpg" alt="듀얼 스타터 세트">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">[입문] 듀얼 스타터 세트</h3>
+          <div class="product-tags">
+            <span class="product-tag">#입문</span>
+            <span class="product-tag">#세트</span>
+          </div>
+          <div class="product-price">₩48,000</div>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span>4.8 (567)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Concern Tabs -->
+  <section class="concern-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">고민별 추천</h2>
+      </div>
+      <div class="concern-tabs">
+        <button class="concern-tab active">탈모케어</button>
+        <button class="concern-tab">두피케어</button>
+        <button class="concern-tab">손상케어</button>
+        <button class="concern-tab">토탈케어</button>
+      </div>
+      <div class="concern-content" data-tab="탈모케어">
+        <div class="concern-text">
+          <h3>탈모가 걱정되시나요?</h3>
+          <p>퍼플부스터 샴푸가 탈락 모발 수를 25% 줄여드립니다.<br>무안 적양파와 8가지 퍼플 슈퍼푸드가 두피에 힘을 불어넣습니다.</p>
+          <a href="shop/purple-booster.html" class="concern-cta">제품 보기 →</a>
+        </div>
+      </div>
+      <div class="concern-content" data-tab="두피케어" style="display: none;">
+        <div class="concern-text">
+          <h3>두피가 예민하신가요?</h3>
+          <p>그린클렌징 샴푸가 민감한 두피를 진정시켜 드립니다.<br>케일과 녹차 추출물이 두피 밸런스를 맞춰줍니다.</p>
+          <a href="shop/green-cleansing.html" class="concern-cta">제품 보기 →</a>
+        </div>
+      </div>
+      <div class="concern-content" data-tab="손상케어" style="display: none;">
+        <div class="concern-text">
+          <h3>모발이 손상되셨나요?</h3>
+          <p>바나나에그 트리트먼트가 손상된 모발에 단백질을 채워드립니다.<br>바나나와 달걀 단백질이 모발 결을 매끄럽게 복구합니다.</p>
+          <a href="shop/yellow-mix.html" class="concern-cta">제품 보기 →</a>
+        </div>
+      </div>
+      <div class="concern-content" data-tab="토탈케어" style="display: none;">
+        <div class="concern-text">
+          <h3>뿌리부터 결까지 토탈 케어</h3>
+          <p>퍼플부스터 샴푸와 바나나에그 트리트먼트의 완벽한 조합.<br>두피 탄력부터 모발 윤기까지 한 번에 케어하세요.</p>
+          <a href="shop/essential-routine.html" class="concern-cta">제품 보기 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Promise -->
+  <section class="promise-section">
+    <div class="section-header">
+      <h2 class="section-title">OUR PROMISE</h2>
+    </div>
+    <div class="promise-grid">
+      <div class="promise-card">
+        <div class="promise-icon">🔬</div>
+        <h3>임상 검증</h3>
+        <p>느낌이 아닌 수치로,<br>인체적용시험 완료</p>
+      </div>
+      <div class="promise-card">
+        <div class="promise-icon">🌱</div>
+        <h3>비건 인증</h3>
+        <p>한국비건인증원<br>인증 획득</p>
+      </div>
+      <div class="promise-card">
+        <div class="promise-icon">✓</div>
+        <h3>클린 포뮬러</h3>
+        <p>설페이트·파라벤·실리콘<br>FREE</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Superfood Story -->
+  <section class="story-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">SUPERFOOD STORY</h2>
+        <a href="story/index.html" class="section-link">더 알아보기 →</a>
+      </div>
+      <div class="story-grid">
+        <div class="story-card">
+          <div class="story-image purple"></div>
+          <div class="story-content">
+            <h3>Purple Complex</h3>
+            <p>항산화 · 두피 탄력</p>
+          </div>
+        </div>
+        <div class="story-card">
+          <div class="story-image green"></div>
+          <div class="story-content">
+            <h3>Green Complex</h3>
+            <p>진정 · 딥클렌징</p>
+          </div>
+        </div>
+        <div class="story-card">
+          <div class="story-image yellow"></div>
+          <div class="story-content">
+            <h3>Yellow Complex</h3>
+            <p>단백질 · 윤기</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="reviews-section">
+    <div class="section-header">
+      <h2 class="section-title">실제 사용자 리뷰</h2>
+      <a href="#" class="section-link">리뷰 더보기 →</a>
+    </div>
+    <div class="reviews-summary">
+      <span class="reviews-score"><span class="stars">★</span> 4.8 평균 평점</span>
+      <span class="reviews-count">| 1,234개 리뷰</span>
+    </div>
+    <div class="review-list">
+      <div class="review-item">
+        <div class="review-header">
+          <span class="review-stars">★★★★★</span>
+          <span class="review-date">2025.01.20</span>
+        </div>
+        <p class="review-text">"두피 간지러움이 사라졌어요. 한 달 정도 쓰니까 확실히 두피가 건강해진 느낌이에요."</p>
+        <span class="review-author">김O희 | 퍼플부스터 샴푸</span>
+      </div>
+      <div class="review-item">
+        <div class="review-header">
+          <span class="review-stars">★★★★★</span>
+          <span class="review-date">2025.01.18</span>
+        </div>
+        <p class="review-text">"뿌리볼륨이 확실히 살아났어요. 다른 제품들은 효과를 못 느꼈는데 이건 달라요."</p>
+        <span class="review-author">박O진 | 퍼플부스터 샴푸</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h4>SHOP</h4>
+        <a href="shop/index.html">전체상품</a>
+        <a href="shop/index.html">BEST</a>
+        <a href="shop/index.html">NEW</a>
+        <a href="shop/index.html">세트/기획</a>
+      </div>
+      <div class="footer-column">
+        <h4>BRAND</h4>
+        <a href="brand/index.html">프루티드 소개</a>
+        <a href="brand/index.html">브랜드 철학</a>
+        <a href="brand/index.html">클린뷰티</a>
+      </div>
+      <div class="footer-column">
+        <h4>SUPPORT</h4>
+        <a href="#">공지사항</a>
+        <a href="#">FAQ</a>
+        <a href="#">1:1 문의</a>
+        <a href="#">멤버십 안내</a>
+      </div>
+      <div class="footer-column">
+        <h4>FOLLOW US</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Kakao</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-divider">
+      <p class="footer-info">고객센터 1588-0000 | cs@prooted.co.kr<br>평일 10:00-17:00 (점심 12:00-13:00)</p>
+      <div class="footer-legal">
+        <a href="#">이용약관</a>
+        <a href="#">개인정보처리방침</a>
+        <a href="#">사업자정보확인</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hero Carousel
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dot');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach(s => s.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+      currentSlide = index;
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => showSlide(index));
+    });
+
+    setInterval(() => {
+      showSlide((currentSlide + 1) % slides.length);
+    }, 4000);
+
+    // Promo bar close
+    document.querySelector('.promo-bar .close').addEventListener('click', function() {
+      document.querySelector('.promo-bar').style.display = 'none';
+    });
+
+    // Concern tabs
+    const tabs = document.querySelectorAll('.concern-tab');
+    const contents = document.querySelectorAll('.concern-content');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        const tabName = this.textContent;
+        tabs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        contents.forEach(content => {
+          content.style.display = content.dataset.tab === tabName ? 'flex' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | PROOTED</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=EB+Garamond:ital@1&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <style>
+    :root { --primary: #4A3728; --secondary: #7B5E57; --accent: #8B5A8B; --background: #F8F5F2; --surface: #FFFFFF; --text: #2D2D2D; --muted: #8A8A8A; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Pretendard', sans-serif; background-color: var(--background); color: var(--text); }
+
+    .header { display: flex; justify-content: center; align-items: center; padding: 24px 60px; background-color: var(--background); }
+    .header-nav { display: flex; align-items: center; gap: 60px; }
+    .header-nav a { font-size: 12px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; color: var(--text); text-decoration: none; }
+    .header-nav a.active { color: var(--accent); }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; letter-spacing: 8px; color: var(--primary); margin: 0 40px; text-decoration: none; }
+
+    .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: url('../../images/감성컷/20260123_151250.jpg') center/cover no-repeat; padding: 0 24px; position: relative; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); }
+    .hero h1 { position: relative; z-index: 1; font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; color: white; margin-bottom: 24px; letter-spacing: 4px; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+    .hero .subtitle { position: relative; z-index: 1; font-family: 'EB Garamond', serif; font-style: italic; font-size: 20px; color: rgba(255,255,255,0.9); text-shadow: 0 1px 4px rgba(0,0,0,0.3); }
+
+    .philosophy-section { padding: 120px 80px; background-color: var(--surface); text-align: center; }
+    .philosophy-section p { font-size: 20px; line-height: 2.2; color: var(--text); max-width: 700px; margin: 0 auto; font-weight: 300; }
+
+    .pillars-section { padding: 100px 80px; background-color: var(--background); }
+    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; max-width: 1100px; margin: 0 auto; }
+    .pillar-item { text-align: center; padding: 60px 40px; background-color: var(--surface); }
+    .pillar-number { font-family: 'Cormorant Garamond', serif; font-size: 48px; color: var(--accent); margin-bottom: 24px; }
+    .pillar-item h3 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--primary); margin-bottom: 16px; }
+    .pillar-item p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    .promise-section { padding: 120px 80px; background: linear-gradient(135deg, var(--primary) 0%, #3A2718 100%); text-align: center; }
+    .promise-section .label { font-family: 'EB Garamond', serif; font-style: italic; font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 24px; }
+    .promise-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: white; margin-bottom: 60px; }
+    .promise-grid { display: flex; justify-content: center; gap: 80px; }
+    .promise-item { text-align: center; color: white; }
+    .promise-icon { font-size: 40px; margin-bottom: 20px; }
+    .promise-item h4 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+    .promise-item p { font-size: 13px; opacity: 0.8; }
+
+    .cta-section { padding: 120px 80px; background-color: var(--surface); text-align: center; }
+    .cta-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--primary); margin-bottom: 40px; }
+    .cta-button { display: inline-block; padding: 18px 48px; background-color: var(--primary); color: white; text-decoration: none; font-size: 13px; letter-spacing: 2px; transition: background 0.3s; }
+    .cta-button:hover { background-color: var(--secondary); }
+
+    .footer { padding: 60px; text-align: center; background-color: var(--primary); color: var(--surface); }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; letter-spacing: 6px; }
+
+    @media (max-width: 1024px) { .pillars-grid { grid-template-columns: 1fr; gap: 40px; } .promise-grid { flex-wrap: wrap; gap: 40px; } }
+    @media (max-width: 768px) { .header-nav { gap: 24px; } .logo { font-size: 20px; margin: 0 16px; } .hero { height: auto; padding: 80px 24px; } .hero h1 { font-size: 36px; } .philosophy-section, .pillars-section, .promise-section, .cta-section { padding: 60px 24px; } .philosophy-section p { font-size: 16px; } }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="header-nav">
+      <a href="../shop/index.html">Shop</a>
+      <a href="../story/index.html">Story</a>
+      <a href="../index.html" class="logo"><img src="../../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 24px;"></a>
+      <a href="index.html" class="active">Brand</a>
+      <a href="#">Cart</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Raw, Real, and Rooted.</h1>
+    <p class="subtitle">잘 먹고, 잘 감는 삶에 대하여.</p>
+  </section>
+
+  <section class="philosophy-section">
+    <p>
+      우리는 식탁 위에서 에너지를 얻습니다.<br>
+      뿌리, 잎, 열매가 가진 생명력을 통해서요.<br><br>
+      이제 그 에너지를<br>
+      당신의 두피와 머릿결에 올립니다.<br><br>
+      가장 신선한 것이 가장 강력하니까.<br>
+      두피가 마시는 첫 번째 슈퍼푸드,<br>
+      프루티드의 회복이 시작됩니다.
+    </p>
+  </section>
+
+  <section class="pillars-section">
+    <div class="pillars-grid">
+      <div class="pillar-item">
+        <p class="pillar-number">01</p>
+        <h3>Rooted</h3>
+        <p>슈퍼푸드 원물에서 출발한 설계.<br>뿌리부터 생각하는 두피·모발 케어.</p>
+      </div>
+      <div class="pillar-item">
+        <p class="pillar-number">02</p>
+        <h3>Proofed</h3>
+        <p>느낌이 아닌 숫자로 증명합니다.<br>임상으로 확인된 변화만을 담았습니다.</p>
+      </div>
+      <div class="pillar-item">
+        <p class="pillar-number">03</p>
+        <h3>Conscious</h3>
+        <p>비건 인증, 클린 포뮬라.<br>지금의 선택이 내일의 두피가 되니까.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="promise-section">
+    <p class="label">Our Promise</p>
+    <h2>넣지 않는 것도 선택입니다</h2>
+    <div class="promise-grid">
+      <div class="promise-item">
+        <div class="promise-icon">🔬</div>
+        <h4>임상 검증</h4>
+        <p>인체적용시험 완료</p>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">🌱</div>
+        <h4>비건 인증</h4>
+        <p>한국비건인증원</p>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">✓</div>
+        <h4>설페이트 FREE</h4>
+        <p>두피 자극 최소화</p>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">✓</div>
+        <h4>파라벤 FREE</h4>
+        <p>안심 포뮬러</p>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">✓</div>
+        <h4>실리콘 FREE</h4>
+        <p>건강한 두피 호흡</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>슈퍼푸드 헤어케어의 시작</h2>
+    <a href="../shop/index.html" class="cta-button">SHOP NOW</a>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-logo"><img src="../../images/로고/prtd_logo_WH.png" alt="PROOTED" style="height: 20px;"></div>
+  </footer>
+</body>
+</html>

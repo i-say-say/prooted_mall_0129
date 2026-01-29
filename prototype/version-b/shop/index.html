@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHOP | 프루티드</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <style>
+    :root { --primary: #1A1A1A; --secondary: #6B4E9B; --accent: #4CAF50; --background: #FFFFFF; --surface: #F9F9F9; --text: #333333; --muted: #888888; --border: #E5E5E5; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Pretendard', sans-serif; background-color: var(--background); color: var(--text); }
+
+    .promo-bar { background-color: var(--secondary); color: white; text-align: center; padding: 12px 20px; font-size: 14px; font-weight: 500; }
+    .header { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 24px; font-weight: 700; color: var(--secondary); text-decoration: none; }
+    .nav-menu { display: flex; gap: 32px; }
+    .nav-menu a { font-size: 14px; font-weight: 500; color: var(--text); text-decoration: none; }
+    .nav-menu a.active { color: var(--secondary); }
+    .nav-utils { display: flex; gap: 20px; }
+    .nav-utils a { font-size: 20px; color: var(--text); text-decoration: none; }
+
+    .page-header { padding: 40px; text-align: center; background-color: var(--surface); }
+    .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+    .breadcrumb a { color: var(--muted); text-decoration: none; }
+    .page-header h1 { font-size: 32px; font-weight: 600; color: var(--primary); }
+
+    .filter-section { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-bottom: 1px solid var(--border); }
+    .filter-tabs { display: flex; gap: 16px; }
+    .filter-tab { padding: 8px 16px; font-size: 14px; border: 1px solid var(--border); border-radius: 20px; background: none; cursor: pointer; transition: all 0.2s; }
+    .filter-tab:hover, .filter-tab.active { border-color: var(--secondary); color: var(--secondary); }
+    .sort-select { padding: 8px 16px; font-size: 14px; border: 1px solid var(--border); border-radius: 4px; }
+
+    .products-section { padding: 40px; max-width: 1200px; margin: 0 auto; }
+    .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .product-card { background: white; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: all 0.2s; text-decoration: none; }
+    .product-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); transform: translateY(-4px); }
+    .product-image { position: relative; aspect-ratio: 1; background-color: var(--surface); }
+    .product-image img { width: 100%; height: 100%; object-fit: cover; }
+    .product-badge { position: absolute; top: 12px; left: 12px; display: flex; gap: 6px; }
+    .badge { padding: 4px 8px; font-size: 11px; font-weight: 600; border-radius: 4px; }
+    .badge.best { background-color: var(--secondary); color: white; }
+    .badge.new { background-color: var(--accent); color: white; }
+    .product-info { padding: 16px; }
+    .product-name { font-size: 15px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+    .product-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+    .product-tag { font-size: 11px; color: var(--secondary); background-color: #F5F0FA; padding: 4px 8px; border-radius: 12px; }
+    .product-price { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+    .product-price .original { font-size: 13px; color: var(--muted); text-decoration: line-through; margin-right: 8px; font-weight: 400; }
+    .product-price .discount { color: #E53935; font-size: 13px; margin-left: 4px; }
+    .product-rating { display: flex; align-items: center; gap: 4px; font-size: 13px; color: var(--muted); }
+    .product-rating .stars { color: #FFB800; }
+
+    .sets-section { padding: 60px 40px; background-color: var(--surface); }
+    .sets-section .container { max-width: 1200px; margin: 0 auto; }
+    .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+    .section-title { font-size: 24px; font-weight: 600; color: var(--primary); }
+    .sets-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .set-card { display: flex; gap: 20px; padding: 24px; background: white; border-radius: 8px; text-decoration: none; transition: all 0.2s; }
+    .set-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    .set-image { width: 100px; height: 100px; background-color: var(--surface); border-radius: 8px; flex-shrink: 0; overflow: hidden; }
+    .set-image img { width: 100%; height: 100%; object-fit: cover; }
+    .set-info h3 { font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 8px; }
+    .set-info .composition { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+    .set-info .desc { font-size: 14px; color: var(--secondary); }
+
+    .footer { background-color: var(--primary); color: white; padding: 60px 40px 40px; }
+    .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
+    .footer-column h4 { font-size: 14px; font-weight: 600; margin-bottom: 20px; }
+    .footer-column a { display: block; font-size: 14px; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 12px; }
+
+    @media (max-width: 1024px) { .product-grid { grid-template-columns: repeat(2, 1fr); } .sets-grid { grid-template-columns: 1fr; } .footer-content { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { .header { padding: 12px 20px; } .nav-menu { display: none; } .products-section, .sets-section { padding: 24px 20px; } .product-grid { gap: 16px; } .footer-content { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="promo-bar">🎁 첫구매 최대 60% 할인 + 5,000원 쿠폰</div>
+  <header class="header">
+    <a href="../index.html" class="logo"><img src="../../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 24px;"></a>
+    <nav class="nav-menu">
+      <a href="index.html" class="active">SHOP</a>
+      <a href="../story/index.html">SUPERFOOD STORY</a>
+      <a href="../brand/index.html">BRAND</a>
+      <a href="#">COMMUNITY</a>
+    </nav>
+    <div class="nav-utils"><a href="#">🔍</a><a href="#">👤</a><a href="#">🛒</a></div>
+  </header>
+
+  <div class="page-header">
+    <p class="breadcrumb"><a href="../index.html">홈</a> > SHOP</p>
+    <h1>전체 상품</h1>
+  </div>
+
+  <div class="filter-section">
+    <div class="filter-tabs">
+      <button class="filter-tab active">전체</button>
+      <button class="filter-tab">샴푸</button>
+      <button class="filter-tab">트리트먼트</button>
+      <button class="filter-tab">세트</button>
+    </div>
+    <select class="sort-select">
+      <option>인기순</option>
+      <option>최신순</option>
+      <option>가격 낮은순</option>
+      <option>가격 높은순</option>
+    </select>
+  </div>
+
+  <section class="products-section">
+    <div class="product-grid">
+      <a href="purple-booster.html" class="product-card" data-category="샴푸">
+        <div class="product-image">
+          <img src="../../images/퍼플샴푸/260123-prooted57601.jpg" alt="퍼플부스터 샴푸">
+          <div class="product-badge"><span class="badge best">BEST</span></div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">퍼플부스터 양파 샴푸</h3>
+          <div class="product-tags"><span class="product-tag">#탈모케어</span><span class="product-tag">#두피탄력</span><span class="product-tag">#비건</span></div>
+          <div class="product-price"><span class="original">₩28,000</span>₩22,400<span class="discount">20%</span></div>
+          <div class="product-rating"><span class="stars">★★★★★</span><span>4.8 (1,234)</span></div>
+        </div>
+      </a>
+      <a href="green-cleansing.html" class="product-card" data-category="샴푸">
+        <div class="product-image">
+          <img src="../../images/그린샴푸/260123-prooted57595.jpg" alt="그린클렌징 샴푸">
+          <div class="product-badge"><span class="badge new">NEW</span></div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">그린클렌징 케일 샴푸</h3>
+          <div class="product-tags"><span class="product-tag">#두피진정</span><span class="product-tag">#피지케어</span><span class="product-tag">#비건</span></div>
+          <div class="product-price"><span class="original">₩28,000</span>₩22,400<span class="discount">20%</span></div>
+          <div class="product-rating"><span class="stars">★★★★★</span><span>4.7 (856)</span></div>
+        </div>
+      </a>
+      <a href="yellow-mix.html" class="product-card" data-category="트리트먼트">
+        <div class="product-image"><img src="../../images/옐로우트리트먼트/260123-prooted57608.jpg" alt="바나나에그 트리트먼트"></div>
+        <div class="product-info">
+          <h3 class="product-name">바나나에그 트리트먼트</h3>
+          <div class="product-tags"><span class="product-tag">#손상케어</span><span class="product-tag">#단백질</span><span class="product-tag">#윤기</span></div>
+          <div class="product-price"><span class="original">₩19,000</span>₩15,200<span class="discount">20%</span></div>
+          <div class="product-rating"><span class="stars">★★★★★</span><span>4.9 (2,156)</span></div>
+        </div>
+      </a>
+      <a href="#" class="product-card" data-category="세트">
+        <div class="product-image"><img src="../../images/퍼플+그린/260123-prooted57620.jpg" alt="듀얼 스타터 세트"></div>
+        <div class="product-info">
+          <h3 class="product-name">[입문] 듀얼 스타터 세트</h3>
+          <div class="product-tags"><span class="product-tag">#입문</span><span class="product-tag">#세트</span></div>
+          <div class="product-price">₩48,000</div>
+          <div class="product-rating"><span class="stars">★★★★★</span><span>4.8 (567)</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="sets-section">
+    <div class="container">
+      <div class="section-header"><h2 class="section-title">세트 상품</h2></div>
+      <div class="sets-grid">
+        <a href="dual-starter.html" class="set-card">
+          <div class="set-image"><img src="../../images/퍼플+그린/260123-prooted57620.jpg" alt="듀얼 스타터"></div>
+          <div class="set-info">
+            <h3>[입문] 슈퍼푸드 듀얼 스타터</h3>
+            <p class="composition">퍼플 샴푸 + 그린 샴푸</p>
+            <p class="desc">두 가지 두피 컨디션에 맞춘 입문 세트</p>
+          </div>
+        </a>
+        <a href="essential-routine.html" class="set-card">
+          <div class="set-image"><img src="../../images/퍼플+그린+옐로우/260123-prooted57627.jpg" alt="에센셜 루틴"></div>
+          <div class="set-info">
+            <h3>[BEST] 뿌리부터 결까지, 에센셜 루틴</h3>
+            <p class="composition">퍼플 샴푸 + 옐로우 트리트먼트</p>
+            <p class="desc">힘없는 뿌리는 퍼플로 잡고, 거친 머릿결은 바나나로 채우는 가장 완벽한 밸런스</p>
+          </div>
+        </a>
+        <a href="deep-clean.html" class="set-card">
+          <div class="set-image"><img src="../../images/퍼플+그린+옐로우/260123-prooted57661.jpg" alt="딥 클린 리페어"></div>
+          <div class="set-info">
+            <h3>[FRESH] 딥 클린 & 실키 리페어</h3>
+            <p class="composition">그린 샴푸 + 옐로우 트리트먼트</p>
+            <p class="desc">유분은 비우고 영양만 남기는 루틴</p>
+          </div>
+        </a>
+        <a href="all-package.html" class="set-card">
+          <div class="set-image"><img src="../../images/퍼플+그린+옐로우/260123-prooted57963.jpg" alt="프루티드 패키지"></div>
+          <div class="set-info">
+            <h3>[ALL] 프루티드 패키지</h3>
+            <p class="composition">퍼플 + 그린 + 옐로우</p>
+            <p class="desc">탈모/진정/물미역 3종 풀 케어</p>
+          </div>
+        </a>
+        <a href="gift-kit.html" class="set-card">
+          <div class="set-image"><img src="../../images/퍼플+그린+옐로우/260123-prooted57922.jpg" alt="웰컴 투 슈퍼푸드 키트"></div>
+          <div class="set-info">
+            <h3>[GIFT] 웰컴 투 슈퍼푸드 키트</h3>
+            <p class="composition">퍼플 + 그린 + 옐로우</p>
+            <p class="desc">호불호 없는 센스 있는 선물</p>
+          </div>
+        </a>
+        <a href="purple-booster-set.html" class="set-card">
+          <div class="set-image"><img src="../../images/퍼플샴푸/260123-prooted57601.jpg" alt="퍼플 부스터 강화 세트"></div>
+          <div class="set-info">
+            <h3>[탈모케어] 퍼플 부스터 강화 세트</h3>
+            <p class="composition">퍼플 샴푸 x 2</p>
+            <p class="desc">매일 쓰는 탈모 케어, 끊기지 않도록</p>
+          </div>
+        </a>
+        <a href="green-reset-set.html" class="set-card">
+          <div class="set-image"><img src="../../images/그린샴푸/260123-prooted57595.jpg" alt="그린 리셋 정화 세트"></div>
+          <div class="set-info">
+            <h3>[지성두피] 그린 리셋 정화 세트</h3>
+            <p class="composition">그린 샴푸 x 2</p>
+            <p class="desc">지성두피의 매일매일 상쾌한 아침</p>
+          </div>
+        </a>
+        <a href="yellow-protein-set.html" class="set-card">
+          <div class="set-image"><img src="../../images/옐로우트리트먼트/260123-prooted57608.jpg" alt="옐로우 단백질 폭탄 세트"></div>
+          <div class="set-info">
+            <h3>[손상모개선] 옐로우 단백질 폭탄 세트</h3>
+            <p class="composition">옐로우 트리트먼트 x 3</p>
+            <p class="desc">아낌없이 바르는 물미역 광채 솔루션</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-column"><h4>SHOP</h4><a href="index.html">전체상품</a><a href="index.html">BEST</a><a href="index.html">NEW</a></div>
+      <div class="footer-column"><h4>BRAND</h4><a href="../brand/index.html">프루티드 소개</a><a href="../brand/index.html">브랜드 철학</a></div>
+      <div class="footer-column"><h4>SUPPORT</h4><a href="#">FAQ</a><a href="#">1:1 문의</a></div>
+      <div class="footer-column"><h4>FOLLOW US</h4><a href="#">Instagram</a><a href="#">Kakao</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const productCards = document.querySelectorAll('.product-card');
+
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        filterTabs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+
+        const category = this.textContent;
+        productCards.forEach(card => {
+          if (category === '전체' || card.dataset.category === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
