@@ -14,10 +14,11 @@
     .header-nav { display: flex; align-items: center; gap: 60px; }
     .header-nav a { font-size: 12px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; color: var(--text); text-decoration: none; }
     .logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; letter-spacing: 8px; color: var(--primary); margin: 0 40px; text-decoration: none; }
-    .hero { height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #F5EED8 0%, #E8E0C8 100%); }
-    .hero-tag { font-size: 12px; letter-spacing: 3px; color: var(--accent); margin-bottom: 24px; }
-    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; color: var(--primary); margin-bottom: 16px; }
-    .hero .subtitle { font-family: 'EB Garamond', serif; font-style: italic; font-size: 20px; color: var(--muted); }
+    .hero { height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: url('../../images/옐로우트리트먼트/260123-prooted57952.jpg') center/cover no-repeat; position: relative; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); }
+    .hero-tag { position: relative; z-index: 1; font-size: 12px; letter-spacing: 3px; color: rgba(255,255,255,0.9); margin-bottom: 24px; }
+    .hero h1 { position: relative; z-index: 1; font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; color: white; margin-bottom: 16px; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+    .hero .subtitle { position: relative; z-index: 1; font-family: 'EB Garamond', serif; font-style: italic; font-size: 20px; color: rgba(255,255,255,0.9); text-shadow: 0 1px 4px rgba(0,0,0,0.3); }
     .intro-section { padding: 120px 80px; background-color: var(--surface); text-align: center; }
     .intro-section p { font-size: 18px; line-height: 2; color: var(--text); max-width: 700px; margin: 0 auto; }
     .ingredients-section { padding: 100px 80px; background-color: var(--background); }
@@ -50,7 +51,7 @@
   </style>
 </head>
 <body>
-  <header class="header"><nav class="header-nav"><a href="../shop/index.html">Shop</a><a href="index.html">Story</a><a href="../index.html" class="logo"><img src="../../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 24px;"></a><a href="../brand/index.html">Brand</a><a href="#">Cart</a></nav></header>
+  <header class="header"><nav class="header-nav"><a href="../shop/index.html">Shop</a><a href="index.html">Story</a><a href="../index.html" class="logo"><img src="../../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 34px;"></a><a href="../brand/index.html">Brand</a><a href="#">Cart</a></nav></header>
   <section class="hero"><p class="hero-tag">YELLOW LINE</p><h1>Yellow Complex</h1><p class="subtitle">Damage Repair & Protein</p></section>
   <section class="intro-section"><p>바나나, 달걀, 꿀 등 옐로우 슈퍼푸드가<br>극손상 모발에 단백질을 채웁니다.<br><br>물미역 광채로<br>즉각적인 윤기를 선사합니다.</p></section>
   <section class="ingredients-section">
@@ -63,7 +64,7 @@
     </div>
   </section>
   <section class="benefits-section"><h2>Clinical Results</h2><div class="benefits-grid"><div class="benefit-item"><p class="number">45<span class="unit">%</span></p><p class="desc">큐티클 거칠기 개선</p></div><div class="benefit-item"><p class="number">38<span class="unit">%</span></p><p class="desc">모발 인장 강도 개선</p></div></div></section>
-  <section class="product-section"><h2>이 성분이 담긴 제품</h2><a href="../shop/yellow-mix.html" class="product-card"><div class="product-image"><img src="../../images/옐로우트리트먼트/260123-prooted57608.jpg" alt="바나나에그 트리트먼트"></div><h3>바나나에그 트리트먼트</h3><p class="price">₩26,000</p></a></section>
+  <section class="product-section"><h2>이 성분이 담긴 제품</h2><a href="../shop/yellow-mix.html" class="product-card"><div class="product-image"><img src="../../images/옐로우트리트먼트/260123-prooted57608.jpg" alt="바나나에그 트리트먼트"></div><h3>바나나에그 트리트먼트</h3><p class="price">₩15,200</p></a></section>
   <footer class="footer"><div class="footer-logo"><img src="../../images/로고/prtd_logo_WH.png" alt="PROOTED" style="height: 20px;"></div></footer>
 </body>
 </html>

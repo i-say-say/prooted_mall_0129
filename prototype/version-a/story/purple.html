@@ -28,11 +28,18 @@
 
     .hero {
       height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center; background: linear-gradient(135deg, #E8E0F0 0%, #D8C8E0 100%);
+      text-align: center; background: url('../../images/감성컷/IMG_7885.jpg') center/cover no-repeat;
+      position: relative;
     }
-    .hero-tag { font-size: 12px; letter-spacing: 3px; color: var(--accent); margin-bottom: 24px; }
-    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; color: var(--primary); margin-bottom: 16px; }
-    .hero .subtitle { font-family: 'EB Garamond', serif; font-style: italic; font-size: 20px; color: var(--muted); }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .hero-tag { position: relative; z-index: 1; font-size: 12px; letter-spacing: 3px; color: rgba(255,255,255,0.9); margin-bottom: 24px; }
+    .hero h1 { position: relative; z-index: 1; font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; color: white; margin-bottom: 16px; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+    .hero .subtitle { position: relative; z-index: 1; font-family: 'EB Garamond', serif; font-style: italic; font-size: 20px; color: rgba(255,255,255,0.9); text-shadow: 0 1px 4px rgba(0,0,0,0.3); }
 
     .intro-section { padding: 120px 80px; background-color: var(--surface); text-align: center; }
     .intro-section p { font-size: 18px; line-height: 2; color: var(--text); max-width: 700px; margin: 0 auto; }
@@ -81,7 +88,7 @@
     <nav class="header-nav">
       <a href="../shop/index.html">Shop</a>
       <a href="index.html">Story</a>
-      <a href="../index.html" class="logo"><img src="../../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 24px;"></a>
+      <a href="../index.html" class="logo"><img src="../../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 34px;"></a>
       <a href="../brand/index.html">Brand</a>
       <a href="#">Cart</a>
     </nav>
@@ -172,7 +179,7 @@
         <img src="../../images/퍼플샴푸/260123-prooted57601.jpg" alt="퍼플부스터 샴푸">
       </div>
       <h3>퍼플부스터 양파 샴푸</h3>
-      <p class="price">₩32,000</p>
+      <p class="price">₩22,400</p>
     </a>
   </section>
 

@@ -245,6 +245,10 @@
       border-radius: 8px;
       overflow: hidden;
       transition: box-shadow 0.2s, transform 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
 
     .product-card:hover {
@@ -321,6 +325,8 @@
       color: var(--primary);
       margin-bottom: 8px;
     }
+    .product-price .original { font-size: 13px; color: var(--muted); text-decoration: line-through; margin-right: 8px; font-weight: 400; }
+    .product-price .discount { color: #E53935; font-size: 13px; margin-left: 4px; }
 
     .product-rating {
       display: flex;
@@ -429,6 +435,10 @@
     .promise-icon {
       font-size: 40px;
       margin-bottom: 20px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .promise-card h3 {
@@ -479,15 +489,15 @@
     }
 
     .story-image.purple {
-      background: linear-gradient(135deg, #8B5A8B 0%, #6B4E9B 100%);
+      background: url('../images/감성컷/IMG_7885.jpg') center/cover no-repeat;
     }
 
     .story-image.green {
-      background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+      background: url('../images/감성컷/IMG_1877.jpg') center/cover no-repeat;
     }
 
     .story-image.yellow {
-      background: linear-gradient(135deg, #FFB800 0%, #FF9800 100%);
+      background: url('../images/옐로우트리트먼트/260123-prooted58209.jpg') center/cover no-repeat;
     }
 
     .story-content {
@@ -707,7 +717,7 @@
 
   <!-- Header -->
   <header class="header">
-    <div class="logo"><img src="../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 24px;"></div>
+    <div class="logo"><img src="../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 34px;"></div>
     <nav class="nav-menu">
       <a href="shop/index.html">SHOP</a>
       <a href="story/index.html">SUPERFOOD STORY</a>
@@ -758,7 +768,7 @@
       <a href="shop/index.html" class="section-link">전체보기 →</a>
     </div>
     <div class="product-grid">
-      <div class="product-card">
+      <a href="shop/purple-booster.html" class="product-card">
         <div class="product-image">
           <img src="../images/퍼플샴푸/260123-prooted57601.jpg" alt="퍼플부스터 샴푸">
           <div class="product-badge">
@@ -772,14 +782,14 @@
             <span class="product-tag">#두피탄력</span>
             <span class="product-tag">#비건</span>
           </div>
-          <div class="product-price">₩32,000</div>
+          <div class="product-price"><span class="original">₩28,000</span>₩22,400<span class="discount">20%</span></div>
           <div class="product-rating">
             <span class="stars">★★★★★</span>
             <span>4.8 (1,234)</span>
           </div>
         </div>
-      </div>
-      <div class="product-card">
+      </a>
+      <a href="shop/green-cleansing.html" class="product-card">
         <div class="product-image">
           <img src="../images/그린샴푸/260123-prooted57595.jpg" alt="그린클렌징 샴푸">
           <div class="product-badge">
@@ -793,14 +803,14 @@
             <span class="product-tag">#피지케어</span>
             <span class="product-tag">#비건</span>
           </div>
-          <div class="product-price">₩28,000</div>
+          <div class="product-price"><span class="original">₩28,000</span>₩22,400<span class="discount">20%</span></div>
           <div class="product-rating">
             <span class="stars">★★★★★</span>
             <span>4.7 (856)</span>
           </div>
         </div>
-      </div>
-      <div class="product-card">
+      </a>
+      <a href="shop/yellow-mix.html" class="product-card">
         <div class="product-image">
           <img src="../images/옐로우트리트먼트/260123-prooted57608.jpg" alt="옐로우믹스 트리트먼트">
         </div>
@@ -811,14 +821,14 @@
             <span class="product-tag">#단백질</span>
             <span class="product-tag">#윤기</span>
           </div>
-          <div class="product-price">₩26,000</div>
+          <div class="product-price"><span class="original">₩19,000</span>₩15,200<span class="discount">20%</span></div>
           <div class="product-rating">
             <span class="stars">★★★★★</span>
             <span>4.9 (2,156)</span>
           </div>
         </div>
-      </div>
-      <div class="product-card">
+      </a>
+      <a href="shop/dual-starter.html" class="product-card">
         <div class="product-image">
           <img src="../images/퍼플+그린/260123-prooted57620.jpg" alt="듀얼 스타터 세트">
         </div>
@@ -834,7 +844,7 @@
             <span>4.8 (567)</span>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 
@@ -893,7 +903,7 @@
         <p>느낌이 아닌 수치로,<br>인체적용시험 완료</p>
       </div>
       <div class="promise-card">
-        <div class="promise-icon">🌱</div>
+        <div class="promise-icon"><img src="../images/아이콘/vegan.png" alt="비건 인증" style="height: 100px;"></div>
         <h3>비건 인증</h3>
         <p>한국비건인증원<br>인증 획득</p>
       </div>

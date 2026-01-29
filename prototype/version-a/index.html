@@ -281,7 +281,17 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, #E8DED5 0%, #D4C4B5 100%);
+      background: url('../images/퍼플샴푸/260123-prooted57991.jpg') center/cover no-repeat;
+    }
+
+    .origin-bg::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
     }
 
     .origin-content {
@@ -295,7 +305,7 @@
       font-family: var(--font-accent);
       font-style: italic;
       font-size: 14px;
-      color: var(--secondary);
+      color: rgba(255, 255, 255, 0.8);
       letter-spacing: 2px;
       margin-bottom: 24px;
     }
@@ -305,8 +315,9 @@
       font-size: 42px;
       font-weight: 300;
       line-height: 1.4;
-      color: var(--primary);
+      color: white;
       margin-bottom: 32px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
 
     .origin-content .link {
@@ -314,7 +325,7 @@
       align-items: center;
       gap: 12px;
       font-size: 14px;
-      color: var(--primary);
+      color: white;
       text-decoration: none;
       letter-spacing: 1px;
       transition: gap 0.3s;
@@ -349,6 +360,15 @@
 
     .clinical-item {
       text-align: center;
+    }
+
+    .clinical-item .number {
+      font-family: var(--font-heading);
+      font-size: 56px;
+      font-weight: 300;
+      color: var(--accent);
+      margin-bottom: 12px;
+      letter-spacing: -2px;
     }
 
     .clinical-item .value {
@@ -563,7 +583,7 @@
     <nav class="header-nav">
       <a href="shop/index.html">Shop</a>
       <a href="story/index.html">Story</a>
-      <span class="logo"><img src="../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 24px;"></span>
+      <span class="logo"><img src="../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 34px;"></span>
       <a href="brand/index.html">Brand</a>
       <a href="#">Cart</a>
     </nav>
@@ -582,7 +602,7 @@
 
   <!-- Brand Statement -->
   <section class="brand-statement fade-up">
-    <blockquote>"가장 신선한 것이<br>가장 강력하니까."</blockquote>
+    <blockquote>"두피가 마시는<br>첫 번째 슈퍼푸드"</blockquote>
     <p class="tagline">Raw, Real, and Rooted.</p>
   </section>
 
@@ -628,19 +648,22 @@
     <p class="label">Proven by Science</p>
     <div class="clinical-grid fade-up">
       <div class="clinical-item">
+        <p class="number">-32.5%</p>
         <p class="value">탈락 모발 수</p>
         <p class="desc">감소</p>
       </div>
       <div class="clinical-item">
+        <p class="number">+28.7%</p>
         <p class="value">두피 탄력</p>
         <p class="desc">개선</p>
       </div>
       <div class="clinical-item">
+        <p class="number">+41.2%</p>
         <p class="value">인장 강도</p>
         <p class="desc">개선</p>
       </div>
     </div>
-    <p class="clinical-note">* 인체적용시험 결과 기준</p>
+    <p class="clinical-note">* 프로브엠 임상연구센터 인체적용시험 결과</p>
   </section>
 
   <!-- Reviews -->

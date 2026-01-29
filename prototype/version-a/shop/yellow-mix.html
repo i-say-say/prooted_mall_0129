@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>바나나에그 트리트먼트 | PROOTED</title>
+  <meta name="description" content="바나나와 달걀, 꿀 등 옐로우 슈퍼푸드로 큐티클 거칠기 39% 개선, 모발 인장 강도 34% 개선. 프로브엠 임상연구센터 인체적용시험 완료.">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=EB+Garamond:ital@1&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
   <style>
@@ -75,12 +76,127 @@
       top: 80px;
       height: calc(100vh - 80px);
       background-color: #F5EED8;
+      display: flex;
+      flex-direction: column;
     }
 
-    .product-gallery img {
+    .gallery-main {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .gallery-main img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    .gallery-thumbs {
+      display: flex;
+      gap: 8px;
+      padding: 16px;
+      background: var(--surface);
+    }
+
+    .gallery-thumb {
+      width: 72px;
+      height: 72px;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: all 0.2s;
+      border: 2px solid transparent;
+    }
+
+    .gallery-thumb:hover {
+      opacity: 0.9;
+    }
+
+    .gallery-thumb.active {
+      opacity: 1;
+      border-color: var(--accent);
+    }
+
+    .gallery-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Reviews Section */
+    .reviews-section {
+      padding: 80px;
+      background-color: var(--background);
+    }
+
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .reviews-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .reviews-summary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .reviews-summary .stars {
+      color: var(--accent);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .review-card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .review-stars {
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    .review-date {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .review-content {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .review-author {
+      font-size: 13px;
+      color: var(--muted);
     }
 
     .product-details {
@@ -88,6 +204,24 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+    }
+
+    .product-badges {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+
+    .badge-best {
+      background: var(--accent);
+      color: white;
     }
 
     .product-line {
@@ -111,45 +245,78 @@
       font-style: italic;
       font-size: 18px;
       color: var(--muted);
-      margin-bottom: 40px;
+      margin-bottom: 24px;
     }
 
-    .product-description {
+    .product-oneliner {
       font-size: 15px;
-      line-height: 1.8;
       color: var(--text);
-      margin-bottom: 40px;
+      margin-bottom: 32px;
+      line-height: 1.6;
     }
 
-    .product-benefits {
+    .clinical-highlights {
+      background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+      padding: 24px;
+      border-radius: 8px;
+      margin-bottom: 32px;
+    }
+
+    .clinical-highlights h4 {
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .highlight-item {
       display: flex;
-      gap: 32px;
-      margin-bottom: 40px;
-      padding: 32px 0;
-      border-top: 1px solid rgba(0,0,0,0.1);
-      border-bottom: 1px solid rgba(0,0,0,0.1);
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
     }
 
-    .benefit-item {
-      text-align: center;
+    .highlight-item:last-child {
+      margin-bottom: 0;
     }
 
-    .benefit-item .value {
+    .highlight-number {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 14px;
-      color: var(--primary);
-      margin-bottom: 4px;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--accent);
+      min-width: 80px;
     }
 
-    .benefit-item .label {
+    .highlight-desc {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .highlight-source {
       font-size: 11px;
       color: var(--muted);
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(0,0,0,0.1);
     }
 
     .product-price {
       font-size: 28px;
       color: var(--primary);
       margin-bottom: 32px;
+    }
+
+    .price-original {
+      text-decoration: line-through;
+      color: var(--muted);
+      margin-right: 8px;
+    }
+
+    .price-discount {
+      color: #E53935;
+      margin-left: 8px;
+      font-size: 18px;
     }
 
     .volume-options {
@@ -209,6 +376,106 @@
       color: var(--surface);
     }
 
+    /* Origin Story Section */
+    .origin-section {
+      padding: 120px 80px;
+      background-color: var(--surface);
+    }
+
+    .origin-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .origin-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--primary);
+      margin-bottom: 24px;
+      line-height: 1.4;
+    }
+
+    .origin-text p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .origin-highlight {
+      font-size: 14px;
+      color: var(--accent);
+      font-style: italic;
+      margin-top: 24px;
+      padding: 16px;
+      background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+      border-radius: 8px;
+    }
+
+    .origin-image img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    /* Efficacy Section */
+    .efficacy-section {
+      padding: 120px 80px;
+      background-color: var(--background);
+    }
+
+    .efficacy-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .efficacy-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--primary);
+    }
+
+    .efficacy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .efficacy-card {
+      background: var(--surface);
+      padding: 40px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .efficacy-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .efficacy-title {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .efficacy-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Ingredient Section */
     .ingredient-section {
       padding: 120px 80px;
       background-color: var(--surface);
@@ -234,11 +501,30 @@
       color: var(--primary);
     }
 
+    .main-ingredient {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 60px;
+    }
+
+    .main-ingredient h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .main-ingredient p {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
     .ingredients-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
-      max-width: 1000px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 32px;
+      max-width: 900px;
       margin: 0 auto;
     }
 
@@ -247,11 +533,11 @@
     }
 
     .ingredient-icon {
-      width: 80px;
-      height: 80px;
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
       background: linear-gradient(135deg, #C9A227 0%, #B89217 100%);
-      margin: 0 auto 16px;
+      margin: 0 auto 12px;
     }
 
     .ingredient-name {
@@ -265,6 +551,7 @@
       color: var(--muted);
     }
 
+    /* Clinical Section */
     .clinical-section {
       padding: 120px 80px;
       background: linear-gradient(135deg, #F5EED8 0%, #E8E0C8 100%);
@@ -276,7 +563,15 @@
       font-style: italic;
       font-size: 14px;
       color: var(--muted);
-      margin-bottom: 40px;
+      margin-bottom: 16px;
+    }
+
+    .clinical-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--primary);
+      margin-bottom: 60px;
     }
 
     .clinical-stats {
@@ -304,8 +599,25 @@
     .clinical-note {
       font-size: 12px;
       color: var(--muted);
+      margin-bottom: 40px;
     }
 
+    .certification-badges {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .cert-badge {
+      font-size: 12px;
+      padding: 8px 16px;
+      background: var(--surface);
+      border-radius: 20px;
+      color: var(--primary);
+    }
+
+    /* Usage Section */
     .usage-section {
       padding: 120px 80px;
       background-color: var(--background);
@@ -328,7 +640,7 @@
       justify-content: center;
       gap: 80px;
       max-width: 900px;
-      margin: 0 auto;
+      margin: 0 auto 60px;
     }
 
     .usage-step {
@@ -356,9 +668,82 @@
       line-height: 1.6;
     }
 
-    .related-section {
+    .usage-tips {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 24px;
+      background: var(--surface);
+      border-radius: 8px;
+    }
+
+    .usage-tips h4 {
+      font-size: 14px;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .usage-tips ul {
+      list-style: none;
+    }
+
+    .usage-tips li {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .usage-tips li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* For Who Section */
+    .for-who-section {
       padding: 100px 80px;
       background-color: var(--surface);
+    }
+
+    .for-who-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .for-who-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--primary);
+    }
+
+    .for-who-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .for-who-item {
+      text-align: center;
+      padding: 24px 16px;
+      background: var(--background);
+      border-radius: 8px;
+    }
+
+    .for-who-item p {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* Related Section */
+    .related-section {
+      padding: 100px 80px;
+      background-color: var(--background);
     }
 
     .related-header {
@@ -386,7 +771,7 @@
 
     .related-image {
       aspect-ratio: 4/5;
-      background-color: var(--background);
+      background-color: var(--surface);
       margin-bottom: 16px;
       overflow: hidden;
     }
@@ -410,6 +795,81 @@
       color: var(--muted);
     }
 
+    /* Product Info Section */
+    .product-info-section {
+      padding: 80px;
+      background-color: var(--surface);
+    }
+
+    .product-info-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .product-info-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--primary);
+    }
+
+    .product-info-table {
+      max-width: 800px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .product-info-table tr {
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .product-info-table th,
+    .product-info-table td {
+      padding: 16px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .product-info-table th {
+      width: 30%;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .product-info-table td {
+      color: var(--text);
+    }
+
+    .caution-list {
+      max-width: 800px;
+      margin: 40px auto 0;
+    }
+
+    .caution-list h4 {
+      font-size: 14px;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .caution-list ul {
+      list-style: none;
+    }
+
+    .caution-list li {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .caution-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+    }
+
     .footer {
       padding: 60px;
       text-align: center;
@@ -423,23 +883,75 @@
       letter-spacing: 6px;
     }
 
+    /* Mobile Fixed CTA */
+    .mobile-fixed-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      padding: 16px;
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+      z-index: 99;
+    }
+
+    .mobile-fixed-cta .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .mobile-fixed-cta .buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .mobile-fixed-cta button {
+      flex: 1;
+      padding: 14px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
     @media (max-width: 1024px) {
       .product-hero { grid-template-columns: 1fr; }
-      .product-gallery { position: relative; height: 60vh; top: 0; }
+      .product-gallery { position: relative; height: auto; top: 0; }
+      .gallery-main { height: 60vh; }
       .product-details { padding: 60px 40px; }
-      .ingredients-grid { grid-template-columns: repeat(2, 1fr); }
+      .origin-content { grid-template-columns: 1fr; gap: 40px; }
+      .efficacy-grid { grid-template-columns: 1fr; }
+      .ingredients-grid { grid-template-columns: repeat(3, 1fr); }
       .clinical-stats { gap: 60px; }
       .usage-steps { flex-direction: column; gap: 40px; }
+      .for-who-grid { grid-template-columns: repeat(2, 1fr); }
+      .reviews-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 768px) {
       .header-nav { gap: 24px; }
       .logo { font-size: 20px; margin: 0 16px; }
       .product-title { font-size: 32px; }
-      .product-details { padding: 40px 24px; }
-      .product-benefits { flex-direction: column; gap: 20px; }
+      .product-details { padding: 40px 24px 120px; }
       .stat-item .number { font-size: 48px; }
       .related-grid { flex-direction: column; align-items: center; }
+      .ingredients-grid { grid-template-columns: repeat(2, 1fr); }
+      .for-who-grid { grid-template-columns: 1fr; }
+      .mobile-fixed-cta { display: block; }
+      .gallery-thumb { width: 60px; height: 60px; }
+      .reviews-section { padding: 60px 24px; }
+      .origin-section,
+      .efficacy-section,
+      .ingredient-section,
+      .clinical-section,
+      .usage-section,
+      .for-who-section,
+      .related-section,
+      .product-info-section {
+        padding: 60px 24px;
+      }
     }
   </style>
 </head>
@@ -448,7 +960,7 @@
     <nav class="header-nav">
       <a href="index.html">Shop</a>
       <a href="../story/index.html">Story</a>
-      <a href="../index.html" class="logo"><img src="../../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 24px;"></a>
+      <a href="../index.html" class="logo"><img src="../../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 34px;"></a>
       <a href="../brand/index.html">Brand</a>
       <a href="#">Cart</a>
     </nav>
@@ -456,37 +968,58 @@
 
   <section class="product-hero">
     <div class="product-gallery">
-      <img src="../../images/옐로우트리트먼트/260123-prooted57608.jpg" alt="바나나에그 트리트먼트">
+      <div class="gallery-main">
+        <img id="mainImage" src="../../images/옐로우트리트먼트/260123-prooted57608.jpg" alt="바나나에그 트리트먼트">
+      </div>
+      <div class="gallery-thumbs">
+        <div class="gallery-thumb active" onclick="changeImage('../../images/옐로우트리트먼트/260123-prooted57608.jpg', this)">
+          <img src="../../images/옐로우트리트먼트/260123-prooted57608.jpg" alt="">
+        </div>
+        <div class="gallery-thumb" onclick="changeImage('../../images/옐로우트리트먼트/260123-prooted57619.jpg', this)">
+          <img src="../../images/옐로우트리트먼트/260123-prooted57619.jpg" alt="">
+        </div>
+        <div class="gallery-thumb" onclick="changeImage('../../images/옐로우트리트먼트/260123-prooted57645.jpg', this)">
+          <img src="../../images/옐로우트리트먼트/260123-prooted57645.jpg" alt="">
+        </div>
+        <div class="gallery-thumb" onclick="changeImage('../../images/옐로우트리트먼트/260123-prooted57675.jpg', this)">
+          <img src="../../images/옐로우트리트먼트/260123-prooted57675.jpg" alt="">
+        </div>
+        <div class="gallery-thumb" onclick="changeImage('../../images/옐로우트리트먼트/260123-prooted57706.jpg', this)">
+          <img src="../../images/옐로우트리트먼트/260123-prooted57706.jpg" alt="">
+        </div>
+      </div>
     </div>
 
     <div class="product-details">
+      <div class="product-badges">
+        <span class="badge badge-best">BEST</span>
+      </div>
+
       <p class="product-line">YELLOW LINE</p>
       <h1 class="product-title">바나나에그<br>트리트먼트</h1>
       <p class="product-subtitle">Banana Egg Treatment</p>
 
-      <p class="product-description">
-        바나나, 달걀, 꿀 등 옐로우 슈퍼푸드가<br>
-        극손상 모발에 단백질을 채웁니다.<br><br>
-        큐티클 거칠기 개선, 모발 인장 강도 개선.<br>
-        물미역 광채로 즉각적인 윤기.
+      <p class="product-oneliner">
+        1초만에 즉각 부드러움, 극손상 모발을 위한 단백질 트리트먼트
       </p>
 
-      <div class="product-benefits">
-        <div class="benefit-item">
-          <p class="value">큐티클 거칠기</p>
-          <p class="label">개선</p>
+      <div class="clinical-highlights">
+        <h4>CLINICAL HIGHLIGHTS</h4>
+        <div class="highlight-item">
+          <span class="highlight-number">39%</span>
+          <span class="highlight-desc">큐티클 거칠기 개선</span>
         </div>
-        <div class="benefit-item">
-          <p class="value">인장 강도</p>
-          <p class="label">개선</p>
+        <div class="highlight-item">
+          <span class="highlight-number">34%</span>
+          <span class="highlight-desc">모발 인장 강도 개선</span>
         </div>
-        <div class="benefit-item">
-          <p class="value">비건 인증</p>
-          <p class="label">한국비건인증원</p>
-        </div>
+        <p class="highlight-source">프로브엠 임상연구센터 인체적용시험 결과</p>
       </div>
 
-      <p class="product-price">₩26,000</p>
+      <p class="product-price">
+        <span class="price-original">₩19,000</span>₩15,200
+        <span class="price-discount">20%</span>
+      </p>
 
       <div class="volume-options">
         <button class="volume-option active">300ml</button>
@@ -498,10 +1031,72 @@
     </div>
   </section>
 
+  <!-- Origin Story Section -->
+  <section class="origin-section">
+    <div class="origin-content">
+      <div class="origin-text">
+        <h2>할머니의 민간요법에서<br>시작된 영양 트리트먼트</h2>
+        <p>
+          바나나, 달걀, 꿀, 우유로 머릿결을 가꾸던<br>
+          할머니의 지혜를 현대 과학으로 재해석했습니다.<br><br>
+          물미역 추출물을 더해 즉각적인 광채까지.
+        </p>
+        <div class="origin-highlight">
+          🍌 "1~3분 권장, 오래 기다릴 필요 없이 즉각적인 부드러움"
+        </div>
+      </div>
+      <div class="origin-image">
+        <img src="../../images/원물/바나나에그.png" alt="바나나에그 원물">
+      </div>
+    </div>
+  </section>
+
+  <!-- Efficacy Section -->
+  <section class="efficacy-section">
+    <div class="efficacy-header">
+      <h2>왜 바나나에그인가요?</h2>
+    </div>
+    <div class="efficacy-grid">
+      <div class="efficacy-card">
+        <p class="efficacy-number">39%</p>
+        <p class="efficacy-title">큐티클 거칠기 개선</p>
+        <p class="efficacy-desc">
+          거칠고 푸석한 모발이 부드러워집니다.<br>
+          바나나와 달걀의 단백질이 손상된 큐티클을<br>
+          코팅하여 매끈한 결을 만들어줍니다.
+        </p>
+      </div>
+      <div class="efficacy-card">
+        <p class="efficacy-number">34%</p>
+        <p class="efficacy-title">모발 인장 강도 개선</p>
+        <p class="efficacy-desc">
+          끊어지기 쉬운 모발을 튼튼하게.<br>
+          가수분해 케라틴과 아미노산이<br>
+          모발 내부까지 영양을 채워줍니다.
+        </p>
+      </div>
+      <div class="efficacy-card">
+        <p class="efficacy-number">즉각</p>
+        <p class="efficacy-title">물미역 광채</p>
+        <p class="efficacy-desc">
+          1초만에 느껴지는 부드러움.<br>
+          물미역 추출물이 모발에 자연스러운<br>
+          윤기와 광채를 더해줍니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Ingredients Section -->
   <section class="ingredient-section">
     <div class="ingredient-header">
       <p class="label">Key Ingredients</p>
-      <h2>옐로우 슈퍼푸드 콤플렉스</h2>
+      <h2>5가지 옐로우 슈퍼푸드</h2>
+    </div>
+
+    <div class="main-ingredient">
+      <h3>바나나 & 달걀</h3>
+      <p>천연 단백질과 비타민이 풍부한 슈퍼푸드 조합.<br>손상된 모발에 영양을 공급하고 탄력을 부여합니다.</p>
     </div>
 
     <div class="ingredients-grid">
@@ -522,30 +1117,43 @@
       </div>
       <div class="ingredient-item">
         <div class="ingredient-icon"></div>
+        <p class="ingredient-name">우유</p>
+        <p class="ingredient-benefit">영양 공급</p>
+      </div>
+      <div class="ingredient-item">
+        <div class="ingredient-icon"></div>
         <p class="ingredient-name">물미역</p>
         <p class="ingredient-benefit">즉각 광채</p>
       </div>
     </div>
   </section>
 
+  <!-- Clinical Proof Section -->
   <section class="clinical-section">
-    <p class="label">Clinical Results</p>
+    <p class="label">Clinical Proof</p>
+    <h2>프로브엠 임상연구센터에서 확인했습니다</h2>
     <div class="clinical-stats">
       <div class="stat-item">
-        <p class="number">45<span class="unit">%</span></p>
+        <p class="number">39<span class="unit">%</span></p>
         <p class="desc">큐티클 거칠기 개선</p>
       </div>
       <div class="stat-item">
-        <p class="number">38<span class="unit">%</span></p>
+        <p class="number">34<span class="unit">%</span></p>
         <p class="desc">모발 인장 강도 개선</p>
       </div>
     </div>
-    <p class="clinical-note">* 인체적용시험 결과 기준</p>
+    <p class="clinical-note">* 프로브엠 임상연구센터 인체적용시험 결과 (사용 전 vs 4주 후)</p>
+    <div class="certification-badges">
+      <span class="cert-badge">설페이트 FREE</span>
+      <span class="cert-badge">파라벤 FREE</span>
+      <span class="cert-badge">실리콘 FREE</span>
+    </div>
   </section>
 
+  <!-- How to Use Section -->
   <section class="usage-section">
     <div class="usage-header">
-      <h2>How to Use</h2>
+      <h2>이렇게 사용하세요</h2>
     </div>
     <div class="usage-steps">
       <div class="usage-step">
@@ -560,12 +1168,46 @@
       </div>
       <div class="usage-step">
         <p class="step-number">03</p>
-        <p class="step-title">3분 후 헹굼</p>
-        <p class="step-desc">3분 후 미온수로<br>깨끗이 헹궈냅니다</p>
+        <p class="step-title">1~3분 후 헹굼</p>
+        <p class="step-desc">1~3분 후 미온수로<br>깨끗이 헹궈냅니다</p>
+      </div>
+    </div>
+    <div class="usage-tips">
+      <h4>사용 TIP</h4>
+      <ul>
+        <li>손상이 심한 모발: 3~5분간 방치 후 헹굼</li>
+        <li>일반 모발: 1~3분이면 충분합니다</li>
+        <li>매일 또는 격일로 사용 권장</li>
+        <li>두피에 닿지 않도록 모발 중심으로 도포하세요</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- For Who Section -->
+  <section class="for-who-section">
+    <div class="for-who-header">
+      <h2>이런 분께 추천합니다</h2>
+    </div>
+    <div class="for-who-grid">
+      <div class="for-who-item">
+        <p>염색, 펌으로<br>모발이 심하게<br>손상된 분</p>
+      </div>
+      <div class="for-who-item">
+        <p>건조하고 푸석푸석한<br>모발로<br>고민인 분</p>
+      </div>
+      <div class="for-who-item">
+        <p>모발이 잘 끊어지고<br>갈라지는<br>분</p>
+      </div>
+      <div class="for-who-item">
+        <p>윤기 없이<br>칙칙한<br>모발</p>
+      </div>
+      <div class="for-who-item">
+        <p>빠른 효과를 원하는<br>바쁜<br>현대인</p>
       </div>
     </div>
   </section>
 
+  <!-- Related Products Section -->
   <section class="related-section">
     <div class="related-header">
       <h2>함께 쓰면 좋은 제품</h2>
@@ -573,27 +1215,133 @@
     <div class="related-grid">
       <a href="purple-booster.html" class="related-card">
         <div class="related-image">
-          <img src="../../images/퍼플샴푸/260123-prooted57601.jpg" alt="퍼플부스터 샴푸">
+          <img src="../../images/퍼플샴푸/260123-prooted57601.jpg" alt="퍼플부스터 어니언 샴푸">
         </div>
         <div class="related-info">
-          <p class="related-name">퍼플부스터 양파 샴푸</p>
-          <p class="related-price">₩32,000</p>
+          <p class="related-name">퍼플부스터 어니언 샴푸</p>
+          <p class="related-price"><span style="text-decoration:line-through;color:#aaa;">₩28,000</span> ₩22,400</p>
         </div>
       </a>
       <a href="green-cleansing.html" class="related-card">
         <div class="related-image">
-          <img src="../../images/그린샴푸/260123-prooted57595.jpg" alt="그린클렌징 샴푸">
+          <img src="../../images/그린샴푸/260123-prooted57595.jpg" alt="그린디톡스 케일 샴푸">
         </div>
         <div class="related-info">
-          <p class="related-name">그린클렌징 케일 샴푸</p>
-          <p class="related-price">₩28,000</p>
+          <p class="related-name">그린디톡스 케일 샴푸</p>
+          <p class="related-price"><span style="text-decoration:line-through;color:#aaa;">₩28,000</span> ₩22,400</p>
         </div>
       </a>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="reviews-section">
+    <div class="reviews-header">
+      <h2>실제 사용 후기</h2>
+      <div class="reviews-summary">
+        <span class="stars">★★★★★</span>
+        <span>4.9</span>
+        <span>· 리뷰 723개</span>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-header">
+          <span class="review-stars">★★★★★</span>
+          <span class="review-date">2025.01.15</span>
+        </div>
+        <p class="review-content">
+          "탈색 5번 한 머리인데 한 번 쓰고 머릿결이 살아났어요. 바르는 순간 진짜 1초만에 부드러워지는 게 느껴져요. 완전 신세계!"
+        </p>
+        <span class="review-author">김** · 20대 여성</span>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <span class="review-stars">★★★★★</span>
+          <span class="review-date">2025.01.08</span>
+        </div>
+        <p class="review-content">
+          "매일 고데기 쓰는데 끊어지던 머리카락이 확실히 줄었어요. 머릿결도 찰랑찰랑해지고 윤기가 돌아요."
+        </p>
+        <span class="review-author">이** · 30대 여성</span>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <span class="review-stars">★★★★☆</span>
+          <span class="review-date">2024.12.28</span>
+        </div>
+        <p class="review-content">
+          "무겁지 않고 가벼운데 윤기가 확실해요. 남자인데 펌 후 머릿결 관리용으로 사용 중인데 만족합니다."
+        </p>
+        <span class="review-author">박** · 20대 남성</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Info Section -->
+  <section class="product-info-section">
+    <div class="product-info-header">
+      <h2>상품 정보</h2>
+    </div>
+    <table class="product-info-table">
+      <tr>
+        <th>제품명</th>
+        <td>바나나에그 트리트먼트</td>
+      </tr>
+      <tr>
+        <th>용량</th>
+        <td>300ml / 500ml</td>
+      </tr>
+      <tr>
+        <th>제조국</th>
+        <td>대한민국</td>
+      </tr>
+      <tr>
+        <th>제조사</th>
+        <td>예그리나</td>
+      </tr>
+      <tr>
+        <th>판매원</th>
+        <td>(주)티씨이코퍼레이션</td>
+      </tr>
+      <tr>
+        <th>사용기한</th>
+        <td>제조일로부터 30개월</td>
+      </tr>
+    </table>
+    <div class="caution-list">
+      <h4>주의사항</h4>
+      <ul>
+        <li>난황 성분이 포함되어 있어 계란 알레르기가 있는 분은 사용에 주의하세요</li>
+        <li>사용 중 이상이 있을 경우 즉시 사용을 중단하세요</li>
+        <li>눈에 들어갔을 경우 깨끗한 물로 씻어내세요</li>
+        <li>직사광선을 피해 서늘한 곳에 보관하세요</li>
+      </ul>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-logo"><img src="../../images/로고/prtd_logo_WH.png" alt="PROOTED" style="height: 20px;"></div>
   </footer>
+
+  <!-- Mobile Fixed CTA -->
+  <div class="mobile-fixed-cta">
+    <div class="price-row">
+      <span style="font-size:18px;font-weight:500;">₩15,200</span>
+      <span style="font-size:13px;color:#8A8A8A;">300ml</span>
+    </div>
+    <div class="buttons">
+      <button class="add-to-cart">장바구니</button>
+      <button class="buy-now">바로 구매</button>
+    </div>
+  </div>
+
+  <script>
+    function changeImage(src, thumb) {
+      document.getElementById('mainImage').src = src;
+      document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+    }
+  </script>
 </body>
 </html>

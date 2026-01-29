@@ -67,21 +67,39 @@
     .page-hero {
       padding: 100px 60px 60px;
       text-align: center;
+      background: url('../../images/감성컷/20260123_142717.jpg') center/cover no-repeat;
+      position: relative;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.35);
     }
 
     .page-hero h1 {
+      position: relative;
+      z-index: 1;
       font-family: 'Cormorant Garamond', serif;
       font-size: 48px;
       font-weight: 300;
       letter-spacing: 12px;
-      color: var(--primary);
+      color: white;
       margin-bottom: 20px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
 
     .page-hero p {
+      position: relative;
+      z-index: 1;
       font-size: 14px;
-      color: var(--muted);
+      color: rgba(255,255,255,0.9);
       letter-spacing: 1px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.3);
     }
 
     .filter-bar {
@@ -318,7 +336,7 @@
     <nav class="header-nav">
       <a href="index.html" class="active">Shop</a>
       <a href="../story/index.html">Story</a>
-      <a href="../index.html" class="logo"><img src="../../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 24px;"></a>
+      <a href="../index.html" class="logo"><img src="../../images/로고/prtd_logo_BK.png" alt="PROOTED" style="height: 34px;"></a>
       <a href="../brand/index.html">Brand</a>
       <a href="#">Cart</a>
     </nav>

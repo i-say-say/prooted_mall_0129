@@ -24,8 +24,9 @@
     .main-image { width: 100%; aspect-ratio: 1; background: var(--surface); border-radius: 8px; overflow: hidden; margin-bottom: 12px; }
     .main-image img { width: 100%; height: 100%; object-fit: cover; }
     .thumb-list { display: flex; gap: 8px; }
-    .thumb { width: 80px; height: 80px; background: var(--surface); border-radius: 4px; border: 2px solid transparent; cursor: pointer; }
+    .thumb { width: 80px; height: 80px; background: var(--surface); border-radius: 4px; border: 2px solid transparent; cursor: pointer; overflow: hidden; }
     .thumb.active { border-color: var(--secondary); }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; }
 
     .product-info .badges { display: flex; gap: 8px; margin-bottom: 16px; }
     .badge { padding: 6px 12px; font-size: 12px; font-weight: 600; border-radius: 4px; background: var(--secondary); color: white; }
@@ -76,6 +77,25 @@
     .ingredient-icon { width: 60px; height: 60px; background: linear-gradient(135deg, #F9A825, #F57F17); border-radius: 50%; margin: 0 auto 12px; }
     .ingredient-name { font-size: 14px; font-weight: 500; color: var(--primary); }
     .ingredient-benefit { font-size: 12px; color: var(--muted); }
+    .origin-image { max-width: 600px; margin: 40px auto; }
+    .origin-image img { width: 100%; height: auto; border-radius: 8px; }
+    .reviews-section { padding: 40px; max-width: 1200px; margin: 0 auto; background: white; }
+    .reviews-section h3 { font-size: 20px; font-weight: 600; margin-bottom: 24px; }
+    .review-summary { display: flex; gap: 40px; padding: 24px; background: var(--surface); border-radius: 8px; margin-bottom: 24px; }
+    .review-score { text-align: center; }
+    .review-score .big-number { font-size: 48px; font-weight: 700; color: var(--secondary); }
+    .review-score .stars { color: #FFB800; font-size: 18px; }
+    .review-bars { flex: 1; }
+    .review-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; font-size: 13px; }
+    .review-bar .bar { flex: 1; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
+    .review-bar .fill { height: 100%; background: var(--secondary); }
+    .review-list { display: flex; flex-direction: column; gap: 20px; }
+    .review-item { padding: 24px; background: var(--surface); border-radius: 8px; }
+    .review-header { display: flex; justify-content: space-between; margin-bottom: 12px; }
+    .review-user { font-weight: 500; }
+    .review-date { font-size: 13px; color: var(--muted); }
+    .review-stars { color: #FFB800; margin-bottom: 8px; }
+    .review-text { font-size: 14px; line-height: 1.7; color: var(--text); }
 
     .related-section { padding: 40px; background: var(--surface); }
     .related-section .container { max-width: 1200px; margin: 0 auto; }
@@ -104,8 +124,14 @@
 
   <section class="product-section">
     <div class="product-gallery">
-      <div class="main-image"><img src="../../images/옐로우트리트먼트/260123-prooted57608.jpg" alt="바나나에그 트리트먼트"></div>
-      <div class="thumb-list"><div class="thumb active"></div><div class="thumb"></div><div class="thumb"></div></div>
+      <div class="main-image"><img id="mainImage" src="../../images/옐로우트리트먼트/260123-prooted57608.jpg" alt="바나나에그 트리트먼트"></div>
+      <div class="thumb-list">
+        <div class="thumb active" onclick="changeImage('../../images/옐로우트리트먼트/260123-prooted57608.jpg', this)"><img src="../../images/옐로우트리트먼트/260123-prooted57608.jpg" alt=""></div>
+        <div class="thumb" onclick="changeImage('../../images/옐로우트리트먼트/260123-prooted57619.jpg', this)"><img src="../../images/옐로우트리트먼트/260123-prooted57619.jpg" alt=""></div>
+        <div class="thumb" onclick="changeImage('../../images/옐로우트리트먼트/260123-prooted57645.jpg', this)"><img src="../../images/옐로우트리트먼트/260123-prooted57645.jpg" alt=""></div>
+        <div class="thumb" onclick="changeImage('../../images/옐로우트리트먼트/260123-prooted57675.jpg', this)"><img src="../../images/옐로우트리트먼트/260123-prooted57675.jpg" alt=""></div>
+        <div class="thumb" onclick="changeImage('../../images/옐로우트리트먼트/260123-prooted57706.jpg', this)"><img src="../../images/옐로우트리트먼트/260123-prooted57706.jpg" alt=""></div>
+      </div>
     </div>
     <div class="product-info">
       <div class="badges"><span class="badge">리뷰 BEST</span></div>
@@ -145,6 +171,44 @@
     </div>
     <h3>이런 분께 추천해요</h3>
     <ul style="margin-left: 20px; color: var(--muted); line-height: 2;"><li>염색/펌으로 모발이 심하게 손상된 분</li><li>머릿결이 푸석푸석하고 끊어지는 분</li><li>즉각적인 윤기와 부드러움을 원하는 분</li><li>단백질 영양이 필요한 극손상 모발</li></ul>
+    <div class="origin-image">
+      <img src="../../images/원물/바나나에그.png" alt="바나나 원물">
+    </div>
+  </section>
+
+  <section class="reviews-section">
+    <h3>고객 리뷰</h3>
+    <div class="review-summary">
+      <div class="review-score">
+        <p class="big-number">4.9</p>
+        <p class="stars">★★★★★</p>
+        <p style="font-size: 13px; color: var(--muted);">2,156개 리뷰</p>
+      </div>
+      <div class="review-bars">
+        <div class="review-bar"><span>5점</span><div class="bar"><div class="fill" style="width: 85%;"></div></div><span>85%</span></div>
+        <div class="review-bar"><span>4점</span><div class="bar"><div class="fill" style="width: 10%;"></div></div><span>10%</span></div>
+        <div class="review-bar"><span>3점</span><div class="bar"><div class="fill" style="width: 3%;"></div></div><span>3%</span></div>
+        <div class="review-bar"><span>2점</span><div class="bar"><div class="fill" style="width: 1%;"></div></div><span>1%</span></div>
+        <div class="review-bar"><span>1점</span><div class="bar"><div class="fill" style="width: 1%;"></div></div><span>1%</span></div>
+      </div>
+    </div>
+    <div class="review-list">
+      <div class="review-item">
+        <div class="review-header"><span class="review-user">윤**</span><span class="review-date">2025.01.20</span></div>
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">블리치 여러번 한 머리인데 이 트리트먼트 쓰고 나서 머릿결이 살아났어요! 물미역처럼 찰랑거리는 느낌이 진짜에요. 인생 트리트먼트 찾았습니다.</p>
+      </div>
+      <div class="review-item">
+        <div class="review-header"><span class="review-user">서**</span><span class="review-date">2025.01.16</span></div>
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">바나나 향이 달달하고 좋아요! 머릿결도 엄청 부드러워지고 윤기도 나요. 친구들한테도 추천했는데 다들 만족한대요.</p>
+      </div>
+      <div class="review-item">
+        <div class="review-header"><span class="review-user">강**</span><span class="review-date">2025.01.11</span></div>
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">단백질 트리트먼트 찾다가 구매했는데 대만족이에요. 손상모발에 확실히 효과있고, 매일 드라이 해도 끊어지지 않아요. 대용량도 출시해주세요!</p>
+      </div>
+    </div>
   </section>
 
   <section class="related-section">
@@ -157,5 +221,12 @@
     </div>
   </section>
   <footer class="footer"><div class="footer-logo"><img src="../../images/로고/prtd_logo_WH.png" alt="PROOTED" style="height: 20px;"></div></footer>
+  <script>
+    function changeImage(src, thumb) {
+      document.getElementById('mainImage').src = src;
+      document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+    }
+  </script>
 </body>
 </html>
