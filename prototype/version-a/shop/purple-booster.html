@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>퍼플부스터 어니언 샴푸 | PROOTED</title>
+  <title>퍼플부스터 양파 샴푸 | PROOTED</title>
   <meta name="description" content="무안 적양파와 8가지 퍼플 슈퍼푸드로 탈락 모발 수 32% 개선, 두피 탄력 38% 개선. 프로브엠 임상연구센터 인체적용시험 완료. 비건 인증.">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=EB+Garamond:ital@1&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
@@ -186,32 +186,48 @@
 
     .clinical-highlights {
       background: linear-gradient(135deg, #F5F0F8 0%, #EDE8F2 100%);
-      padding: 20px 24px;
+      padding: 24px;
       border-radius: 8px;
       margin-bottom: 24px;
     }
 
-    .clinical-highlights p {
-      font-size: 14px;
-      color: var(--primary);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .clinical-highlights h4 {
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 16px;
     }
 
-    .clinical-highlights p:last-child {
+    .highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .highlight-item:last-child {
       margin-bottom: 0;
     }
 
-    .clinical-highlights strong {
+    .highlight-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
       color: var(--accent);
+      min-width: 80px;
     }
 
-    .clinical-highlights .source {
-      font-size: 12px;
+    .highlight-desc {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .highlight-source {
+      font-size: 11px;
       color: var(--muted);
       margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(0,0,0,0.1);
     }
 
     .product-benefits {
@@ -903,7 +919,7 @@
   <section class="product-hero">
     <div class="product-gallery">
       <div class="gallery-main">
-        <img id="mainImage" src="../../images/퍼플샴푸/260123-prooted57601.jpg" alt="퍼플부스터 어니언 샴푸">
+        <img id="mainImage" src="../../images/퍼플샴푸/260123-prooted57601.jpg" alt="퍼플부스터 양파 샴푸">
       </div>
       <div class="gallery-thumbs">
         <div class="gallery-thumb active" onclick="changeImage('../../images/퍼플샴푸/260123-prooted57601.jpg', this)"><img src="../../images/퍼플샴푸/260123-prooted57601.jpg" alt=""></div>
@@ -921,7 +937,7 @@
       </div>
 
       <p class="product-line">PURPLE LINE</p>
-      <h1 class="product-title">퍼플부스터<br>어니언 샴푸</h1>
+      <h1 class="product-title">퍼플부스터<br>양파 샴푸</h1>
       <p class="product-subtitle">Purple Booster Onion Shampoo</p>
 
       <p class="product-oneliner">
@@ -929,9 +945,16 @@
       </p>
 
       <div class="clinical-highlights">
-        <p><strong>탈락 모발 수 32% 개선</strong> — 프로브엠 임상연구센터</p>
-        <p><strong>두피 탄력 38% 개선</strong> — 프로브엠 임상연구센터</p>
-        <p class="source">인체적용시험 완료</p>
+        <h4>CLINICAL HIGHLIGHTS</h4>
+        <div class="highlight-item">
+          <span class="highlight-number">32%</span>
+          <span class="highlight-desc">탈락 모발 수 개선</span>
+        </div>
+        <div class="highlight-item">
+          <span class="highlight-number">38%</span>
+          <span class="highlight-desc">두피 탄력 개선</span>
+        </div>
+        <p class="highlight-source">프로브엠 임상연구센터 인체적용시험 결과</p>
       </div>
 
       <div class="product-benefits">
@@ -1157,10 +1180,10 @@
       </a>
       <a href="green-cleansing.html" class="related-card">
         <div class="related-image">
-          <img src="../../images/그린샴푸/260123-prooted57595.jpg" alt="그린디톡스 케일 샴푸">
+          <img src="../../images/그린샴푸/260123-prooted57595.jpg" alt="그린클렌징 케일 샴푸">
         </div>
         <div class="related-info">
-          <p class="related-name">그린디톡스 케일 샴푸</p>
+          <p class="related-name">그린클렌징 케일 샴푸</p>
           <p class="related-price">₩22,400</p>
         </div>
       </a>
@@ -1174,7 +1197,7 @@
       <table>
         <tr>
           <td>제품명</td>
-          <td>퍼플부스터 어니언 샴푸</td>
+          <td>퍼플부스터 양파 샴푸</td>
         </tr>
         <tr>
           <td>용량</td>
@@ -1208,7 +1231,7 @@
   <div class="fixed-cta">
     <div class="fixed-cta-inner">
       <div class="fixed-cta-info">
-        <span class="fixed-cta-name">퍼플부스터 어니언 샴푸</span>
+        <span class="fixed-cta-name">퍼플부스터 양파 샴푸</span>
         <span class="fixed-cta-price">₩22,400</span>
       </div>
       <div class="fixed-cta-buttons">
